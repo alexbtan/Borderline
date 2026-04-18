@@ -237,6 +237,7 @@ export default function Home() {
   const [dailyStats, setDailyStats] = useState<DailyStats>(defaultStats);
   const [dailyProgress, setDailyProgress] = useState<DailyProgress | null>(null);
   const [revealDirection, setRevealDirection] = useState<RevealDirection>("left");
+  const [unlimitedAnswerRevealed, setUnlimitedAnswerRevealed] = useState(false);
 
   useEffect(() => {
     async function loadCountries() {
@@ -271,6 +272,7 @@ export default function Home() {
     }
 
     if (mode === "daily") {
+      setUnlimitedAnswerRevealed(false);
       const today = getTodayKey();
       const savedProgress = loadFromStorage<DailyProgress>(STORAGE_PROGRESS_KEY);
       if (savedProgress?.date === today) {
@@ -315,6 +317,7 @@ export default function Home() {
       return;
     }
 
+    setUnlimitedAnswerRevealed(false);
     const randomCountry =
       allCountries[Math.floor(Math.random() * allCountries.length)];
     setTargetCountry(randomCountry);
@@ -344,7 +347,10 @@ export default function Home() {
   const targetName = targetCountry ? getCountryName(targetCountry) : "";
   const won = guesses.some((guess) => normalizeName(guess) === normalizeName(targetName));
   const lost = !won && guesses.length >= MAX_GUESSES;
-  const completed = won || lost;
+  const completed =
+    won || lost || (mode === "unlimited" && unlimitedAnswerRevealed);
+  const unlimitedRevealedEarly =
+    mode === "unlimited" && unlimitedAnswerRevealed && !won && !lost;
 
   const renderShape = useMemo(() => {
     if (!targetCountry) {
@@ -496,11 +502,29 @@ export default function Home() {
     if (mode !== "unlimited" || !allCountries.length) {
       return;
     }
-    const nextCountry =
-      allCountries[Math.floor(Math.random() * allCountries.length)];
+    let nextCountry = allCountries[Math.floor(Math.random() * allCountries.length)];
+    if (targetCountry && allCountries.length > 1) {
+      let guard = 0;
+      while (
+        getCountryName(nextCountry) === getCountryName(targetCountry) &&
+        guard < 24
+      ) {
+        nextCountry = allCountries[Math.floor(Math.random() * allCountries.length)];
+        guard += 1;
+      }
+    }
     setTargetCountry(nextCountry);
     setRevealDirection(getRandomRevealDirection());
     setGuesses([]);
+    setGuessValue("");
+    setUnlimitedAnswerRevealed(false);
+  }
+
+  function revealUnlimitedAnswer() {
+    if (mode !== "unlimited" || completed || !targetCountry) {
+      return;
+    }
+    setUnlimitedAnswerRevealed(true);
     setGuessValue("");
   }
 
@@ -593,17 +617,28 @@ export default function Home() {
             </svg>
           </div>
 
-          <p className="mb-4 text-center text-sm text-slate-600">
-            {completed
-              ? `Answer: ${targetName}`
-              : `Guess ${guesses.length + 1} of ${MAX_GUESSES}`}
-          </p>
+          {!completed && (
+            <p className="mb-4 text-center text-sm text-slate-600">
+              Guess {guesses.length + 1} of {MAX_GUESSES}
+            </p>
+          )}
+
+          {completed && (
+            <div className="mx-auto mb-5 w-full max-w-xl rounded-2xl border-2 border-slate-900 bg-slate-900 px-5 py-5 text-center shadow-lg sm:px-8 sm:py-6">
+              <p className="text-[0.7rem] font-semibold tracking-[0.2em] text-slate-400 uppercase">
+                Answer
+              </p>
+              <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                {targetName}
+              </p>
+            </div>
+          )}
 
           <form onSubmit={handleGuessSubmit} className="mx-auto mb-4 w-full max-w-xl">
             <label htmlFor="country-guess" className="mb-2 block text-sm font-medium text-slate-700">
               Enter country name
             </label>
-            <div className="flex flex-col gap-2 sm:flex-row">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
               <div className="relative min-w-0 flex-1">
                 <input
                   id="country-guess"
@@ -644,13 +679,24 @@ export default function Home() {
                   </ul>
                 )}
               </div>
-              <button
-                type="submit"
-                disabled={completed}
-                className="w-full shrink-0 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto"
-              >
-                Guess
-              </button>
+              <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-stretch">
+                <button
+                  type="submit"
+                  disabled={completed}
+                  className="w-full shrink-0 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto sm:min-w-[6.5rem]"
+                >
+                  Guess
+                </button>
+                {mode === "unlimited" && !completed && (
+                  <button
+                    type="button"
+                    onClick={revealUnlimitedAnswer}
+                    className="w-full shrink-0 rounded-xl border-2 border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50 sm:w-auto"
+                  >
+                    Reveal answer
+                  </button>
+                )}
+              </div>
             </div>
           </form>
 
@@ -677,7 +723,9 @@ export default function Home() {
               <p className="text-sm font-medium text-slate-800">
                 {won
                   ? `Correct in ${guesses.length} guess${guesses.length === 1 ? "" : "es"}`
-                  : "No more guesses left."}
+                  : unlimitedRevealedEarly
+                    ? "Answer revealed."
+                    : "No more guesses left."}
               </p>
               {mode === "unlimited" && (
                 <button
