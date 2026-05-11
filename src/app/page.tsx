@@ -1,24 +1,27 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect */
 
-import { geoArea, geoMercator, geoPath } from "d3-geo";
+import Link from "next/link";
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
 
-type FeatureCollection = {
-  type: "FeatureCollection";
-  features: CountryFeature[];
+import countryAllowlist from "@/data/country-allowlist.json";
+import {
+  type CountryFeature,
+  type FeatureCollection,
+  DATASET_URL,
+  buildCountryMapPath,
+  getCountryCode,
+  getCountryName,
+} from "@/lib/country-geo";
+
+type CountryAllowlistEntry = {
+  code: string;
+  name: string;
 };
 
-type CountryFeature = {
-  type: "Feature";
-  id?: string;
-  properties?: {
-    name?: string;
-    NAME?: string;
-    ADMIN?: string;
-  };
-  geometry: GeoJSON.Geometry;
-};
+const ALLOWLIST_CODES = new Set(
+  (countryAllowlist as CountryAllowlistEntry[]).map((entry) => entry.code),
+);
 
 type GameMode = "daily" | "unlimited";
 
@@ -42,13 +45,14 @@ type DailyProgress = {
 
 type RevealDirection = "left" | "right" | "top" | "bottom";
 
-const DATASET_URL =
-  "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson";
 const MAX_GUESSES = 6;
 const STORAGE_STATS_KEY = "country-outline-daily-stats-v1";
 const STORAGE_PROGRESS_KEY = "country-outline-daily-progress-v1";
 const SVG_SIZE = 440;
 const SVG_PADDING = 22;
+const MAP_INNER_SIZE = SVG_SIZE - SVG_PADDING * 2;
+const MIN_COUNTRY_MIN_EDGE_PX = 130;
+const MAX_SMALL_COUNTRY_ZOOM = 5;
 const MIN_SHAPE_VISIBLE_RATIO = 0.09;
 const REVEAL_DIRECTIONS: RevealDirection[] = ["left", "right", "top", "bottom"];
 
@@ -76,63 +80,6 @@ function hashStringToIndex(value: string, length: number) {
 
 function normalizeName(value: string) {
   return value.trim().toLowerCase();
-}
-
-function getCountryName(country: CountryFeature) {
-  return country.properties?.name ?? country.properties?.ADMIN ?? country.properties?.NAME ?? "";
-}
-
-function featureArea(geometry: GeoJSON.Geometry) {
-  return geoArea({
-    type: "Feature",
-    geometry,
-    properties: {},
-  } as GeoJSON.Feature);
-}
-
-function getDisplayGeometry(country: CountryFeature): GeoJSON.Geometry {
-  const { geometry } = country;
-
-  if (geometry.type !== "MultiPolygon") {
-    return geometry;
-  }
-
-  const polygons = geometry.coordinates.map((polygon) => ({
-    polygon,
-    area: featureArea({
-      type: "Polygon",
-      coordinates: polygon,
-    }),
-  }));
-
-  if (!polygons.length) {
-    return geometry;
-  }
-
-  const largestArea = Math.max(...polygons.map((item) => item.area));
-  const keptPolygons = polygons
-    .filter((item) => item.area >= largestArea * 0.04)
-    .map((item) => item.polygon);
-
-  if (!keptPolygons.length) {
-    const largestPolygon = polygons.find((item) => item.area === largestArea);
-    return {
-      type: "Polygon",
-      coordinates: largestPolygon?.polygon ?? geometry.coordinates[0],
-    };
-  }
-
-  if (keptPolygons.length === 1) {
-    return {
-      type: "Polygon",
-      coordinates: keptPolygons[0],
-    };
-  }
-
-  return {
-    type: "MultiPolygon",
-    coordinates: keptPolygons,
-  };
 }
 
 function getDailyRevealDirection(seed: string) {
@@ -248,7 +195,13 @@ export default function Home() {
           throw new Error("Failed to fetch country shapes.");
         }
         const data = (await response.json()) as FeatureCollection;
-        const features = data.features.filter((feature) => getCountryName(feature));
+        const features = data.features.filter(
+          (feature) =>
+            getCountryName(feature) && ALLOWLIST_CODES.has(getCountryCode(feature)),
+        );
+        if (!features.length) {
+          throw new Error("Allowlist produced no countries.");
+        }
         setAllCountries(features);
       } catch {
         setLoadingError("Could not load country data. Please refresh and try again.");
@@ -276,6 +229,42 @@ export default function Home() {
       const today = getTodayKey();
       const savedProgress = loadFromStorage<DailyProgress>(STORAGE_PROGRESS_KEY);
       if (savedProgress?.date === today) {
+        const target = allCountries.find((country) => {
+          if (
+            savedProgress.targetId &&
+            getCountryCode(country) === savedProgress.targetId
+          ) {
+            return true;
+          }
+          return (
+            normalizeName(getCountryName(country)) ===
+            normalizeName(savedProgress.targetName)
+          );
+        });
+
+        if (!target) {
+          const targetIndex = hashDateToIndex(today, allCountries.length);
+          const newTarget = allCountries[targetIndex];
+          const direction = getDailyRevealDirection(
+            `${today}-${getCountryCode(newTarget) || getCountryName(newTarget)}`,
+          );
+          const newProgress: DailyProgress = {
+            date: today,
+            targetName: getCountryName(newTarget),
+            targetId: getCountryCode(newTarget),
+            revealDirection: direction,
+            guesses: [],
+            completed: false,
+            won: false,
+          };
+          setTargetCountry(newTarget);
+          setRevealDirection(direction);
+          setGuesses([]);
+          setDailyProgress(newProgress);
+          saveToStorage(STORAGE_PROGRESS_KEY, newProgress);
+          return;
+        }
+
         const resolvedRevealDirection = savedProgress.revealDirection
           ? savedProgress.revealDirection
           : getDailyRevealDirection(`${today}-${savedProgress.targetId || savedProgress.targetName}`);
@@ -286,23 +275,18 @@ export default function Home() {
         setRevealDirection(resolvedRevealDirection);
         setDailyProgress(normalizedProgress);
         setGuesses(savedProgress.guesses);
-        const target = allCountries.find(
-          (country) =>
-            (savedProgress.targetId && country.id === savedProgress.targetId) ||
-            normalizeName(getCountryName(country)) === normalizeName(savedProgress.targetName),
-        );
-        setTargetCountry(target ?? null);
+        setTargetCountry(target);
         saveToStorage(STORAGE_PROGRESS_KEY, normalizedProgress);
       } else {
         const targetIndex = hashDateToIndex(today, allCountries.length);
         const newTarget = allCountries[targetIndex];
         const direction = getDailyRevealDirection(
-          `${today}-${newTarget.id ?? getCountryName(newTarget)}`,
+          `${today}-${getCountryCode(newTarget) || getCountryName(newTarget)}`,
         );
         const newProgress: DailyProgress = {
           date: today,
           targetName: getCountryName(newTarget),
-          targetId: newTarget.id ?? "",
+          targetId: getCountryCode(newTarget),
           revealDirection: direction,
           guesses: [],
           completed: false,
@@ -356,15 +340,11 @@ export default function Home() {
     if (!targetCountry) {
       return { path: "", bounds: [[0, 0], [SVG_SIZE, SVG_SIZE]] as [[number, number], [number, number]] };
     }
-    const displayGeometry = getDisplayGeometry(targetCountry);
-    const projection = geoMercator().fitSize(
-      [SVG_SIZE - SVG_PADDING * 2, SVG_SIZE - SVG_PADDING * 2],
-      displayGeometry as never,
-    );
-    const pathBuilder = geoPath(projection);
-    const path = pathBuilder(displayGeometry as never) ?? "";
-    const bounds = pathBuilder.bounds(displayGeometry as never) as [[number, number], [number, number]];
-    return { path, bounds };
+    return buildCountryMapPath(targetCountry, {
+      innerSize: MAP_INNER_SIZE,
+      minCountryMinEdgePx: MIN_COUNTRY_MIN_EDGE_PX,
+      maxSmallCountryZoom: MAX_SMALL_COUNTRY_ZOOM,
+    });
   }, [targetCountry]);
 
   const minimumFirstRevealPercent = useMemo(() => {
@@ -528,18 +508,73 @@ export default function Home() {
     setGuessValue("");
   }
 
+  useEffect(() => {
+    if (mode !== "unlimited" || !unlimitedAnswerRevealed || !allCountries.length) {
+      return;
+    }
+
+    function handleWindowKeyDown(event: globalThis.KeyboardEvent) {
+      if (event.key !== "Enter" || event.repeat) {
+        return;
+      }
+      event.preventDefault();
+      let nextCountry = allCountries[Math.floor(Math.random() * allCountries.length)];
+      if (targetCountry && allCountries.length > 1) {
+        let guard = 0;
+        while (
+          getCountryName(nextCountry) === getCountryName(targetCountry) &&
+          guard < 24
+        ) {
+          nextCountry = allCountries[Math.floor(Math.random() * allCountries.length)];
+          guard += 1;
+        }
+      }
+      setTargetCountry(nextCountry);
+      setRevealDirection(getRandomRevealDirection());
+      setGuesses([]);
+      setGuessValue("");
+      setUnlimitedAnswerRevealed(false);
+    }
+
+    window.addEventListener("keydown", handleWindowKeyDown);
+    return () => window.removeEventListener("keydown", handleWindowKeyDown);
+  }, [allCountries, mode, targetCountry, unlimitedAnswerRevealed]);
+
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-4 py-6 sm:px-8 sm:py-8">
-      <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+    <main className="mx-auto flex min-h-dvh w-full max-w-4xl flex-col px-3 py-3 text-slate-100 sm:px-6 sm:py-4">
+      <section className="mb-3 rounded-2xl border border-slate-700 bg-slate-900/80 p-3">
+        <p className="mb-2 text-[0.65rem] font-semibold tracking-[0.18em] text-sky-300/60 uppercase">
+          Game Series
+        </p>
+        <div className="grid gap-2 sm:grid-cols-2">
+          <Link
+            href="/"
+            className="rounded-xl border border-sky-500/50 bg-sky-900/40 px-3 py-2 text-sm text-sky-100"
+          >
+            <span className="block font-semibold">1) Partial Country Outlines</span>
+            <span className="block text-xs text-sky-200/80">You are here</span>
+          </Link>
+          <Link
+            href="/games/tradle"
+            className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 hover:border-sky-600"
+          >
+            <span className="block font-semibold">2) Trade Clues (OEC)</span>
+            <span className="block text-xs text-slate-400">
+              Guess countries from exports and imports
+            </span>
+          </Link>
+        </div>
+      </section>
+      <header className="mb-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase">
+          <p className="text-[0.65rem] font-semibold tracking-[0.18em] text-sky-300/60 uppercase">
             Daily Geography Game
           </p>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+          <h1 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
             Partial Country Outlines
           </h1>
         </div>
-        <div className="inline-flex w-full rounded-xl bg-slate-200 p-1 sm:w-auto">
+        <div className="inline-flex w-full rounded-xl border border-slate-700 bg-slate-950 p-1 sm:w-auto">
           {(["daily", "unlimited"] as GameMode[]).map((gameMode) => (
             <button
               type="button"
@@ -547,8 +582,8 @@ export default function Home() {
               onClick={() => setMode(gameMode)}
               className={`flex-1 rounded-lg px-4 py-2 text-sm font-medium transition sm:flex-initial ${
                 mode === gameMode
-                  ? "bg-white text-slate-900 shadow"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-sky-700 text-slate-50 shadow"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
               {gameMode === "daily" ? "Daily" : "Unlimited"}
@@ -558,20 +593,20 @@ export default function Home() {
       </header>
 
       {loading && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-10 text-center text-slate-600 shadow-sm">
+        <section className="rounded-2xl border border-slate-700 bg-slate-900 p-8 text-center text-slate-300 shadow-sm">
           Loading country data...
         </section>
       )}
 
       {!loading && loadingError && (
-        <section className="rounded-2xl border border-red-200 bg-red-50 p-8 text-center text-red-700 shadow-sm">
+        <section className="rounded-2xl border border-red-500/40 bg-red-950/50 p-6 text-center text-red-200 shadow-sm">
           {loadingError}
         </section>
       )}
 
       {!loading && !loadingError && targetCountry && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-          <div className="mx-auto mb-5 w-full max-w-md rounded-xl border border-slate-200 bg-slate-50 p-2 sm:p-3">
+        <section className="rounded-2xl border border-slate-700 bg-slate-900/95 p-3 shadow-2xl shadow-black/20 sm:p-4">
+          <div className="mx-auto mb-3 aspect-square w-full max-w-[min(86vw,42dvh,22rem)] rounded-xl border border-slate-700 bg-slate-950 p-2">
             <svg viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`} className="h-full w-full">
               <defs>
                 <mask
@@ -608,8 +643,8 @@ export default function Home() {
               <g transform={`translate(${SVG_PADDING}, ${SVG_PADDING})`}>
                 <path
                   d={renderShape.path}
-                  fill="#e2e8f0"
-                  stroke="#94a3b8"
+                  fill="#2f5f86"
+                  stroke="#8fb6d6"
                   strokeWidth="1.4"
                   mask="url(#reveal-mask)"
                 />
@@ -618,24 +653,24 @@ export default function Home() {
           </div>
 
           {!completed && (
-            <p className="mb-4 text-center text-sm text-slate-600">
+            <p className="mb-3 text-center text-sm text-slate-400">
               Guess {guesses.length + 1} of {MAX_GUESSES}
             </p>
           )}
 
           {completed && (
-            <div className="mx-auto mb-5 w-full max-w-xl rounded-2xl border-2 border-slate-900 bg-slate-900 px-5 py-5 text-center shadow-lg sm:px-8 sm:py-6">
-              <p className="text-[0.7rem] font-semibold tracking-[0.2em] text-slate-400 uppercase">
+            <div className="mx-auto mb-3 w-full max-w-xl rounded-2xl border border-sky-500/40 bg-sky-900 px-4 py-3 text-center shadow-lg shadow-black/30 sm:px-6 sm:py-4">
+              <p className="text-[0.65rem] font-semibold tracking-[0.2em] text-sky-200/70 uppercase">
                 Answer
               </p>
-              <p className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              <p className="mt-1 text-xl font-bold tracking-tight text-white sm:text-2xl">
                 {targetName}
               </p>
             </div>
           )}
 
-          <form onSubmit={handleGuessSubmit} className="mx-auto mb-4 w-full max-w-xl">
-            <label htmlFor="country-guess" className="mb-2 block text-sm font-medium text-slate-700">
+          <form onSubmit={handleGuessSubmit} className="mx-auto mb-3 w-full max-w-xl">
+            <label htmlFor="country-guess" className="mb-1.5 block text-sm font-medium text-slate-300">
               Enter country name
             </label>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
@@ -651,14 +686,14 @@ export default function Home() {
                   onChange={(event) => setGuessValue(event.target.value)}
                   onKeyDown={handleGuessInputKeyDown}
                   disabled={completed}
-                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed disabled:bg-slate-100"
+                  className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-slate-100 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-sky-600 focus:ring-2 focus:ring-sky-700/20 disabled:cursor-not-allowed disabled:bg-slate-800"
                   placeholder="Start typing a country..."
                 />
                 {!completed && filteredSuggestions.length > 0 && (
                   <ul
                     id="country-guess-listbox"
                     role="listbox"
-                    className="absolute top-full right-0 left-0 z-20 mt-1 max-h-56 overflow-auto rounded-xl border border-slate-200 bg-white py-1 shadow-lg"
+                    className="mt-1 max-h-44 overflow-auto rounded-xl border border-slate-700 bg-slate-950 py-1 shadow-lg shadow-black/30 sm:absolute sm:top-full sm:right-0 sm:left-0 sm:z-20"
                   >
                     {filteredSuggestions.map((suggestion) => (
                       <li
@@ -668,7 +703,7 @@ export default function Home() {
                       >
                         <button
                           type="button"
-                          className="w-full px-4 py-2.5 text-left text-sm text-slate-800 hover:bg-slate-100"
+                          className="w-full px-4 py-2.5 text-left text-sm text-slate-200 hover:bg-slate-800"
                           onMouseDown={(e) => e.preventDefault()}
                           onClick={() => setGuessValue(suggestion)}
                         >
@@ -683,7 +718,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={completed}
-                  className="w-full shrink-0 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto sm:min-w-[6.5rem]"
+                  className="w-full shrink-0 rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-600 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400 sm:w-auto sm:min-w-[6.5rem]"
                 >
                   Guess
                 </button>
@@ -691,7 +726,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={revealUnlimitedAnswer}
-                    className="w-full shrink-0 rounded-xl border-2 border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50 sm:w-auto"
+                    className="w-full shrink-0 rounded-xl border border-slate-600 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-sky-600 hover:bg-slate-700 sm:w-auto"
                   >
                     Reveal answer
                   </button>
@@ -700,7 +735,7 @@ export default function Home() {
             </div>
           </form>
 
-          <div className="mb-4 flex flex-wrap gap-2">
+          <div className="mb-3 flex flex-wrap gap-1.5">
             {guesses.map((guess) => {
               const isCorrect = normalizeName(guess) === normalizeName(targetName);
               return (
@@ -708,8 +743,8 @@ export default function Home() {
                   key={guess}
                   className={`rounded-full px-3 py-1 text-sm font-medium ${
                     isCorrect
-                      ? "bg-emerald-100 text-emerald-800"
-                      : "bg-slate-100 text-slate-700"
+                      ? "bg-emerald-400 text-emerald-950"
+                      : "bg-slate-800 text-slate-300"
                   }`}
                 >
                   {guess}
@@ -719,8 +754,8 @@ export default function Home() {
           </div>
 
           {completed && (
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-sm font-medium text-slate-800">
+            <div className="rounded-xl border border-slate-700 bg-slate-950 p-3">
+              <p className="text-sm font-medium text-slate-300">
                 {won
                   ? `Correct in ${guesses.length} guess${guesses.length === 1 ? "" : "es"}`
                   : unlimitedRevealedEarly
@@ -731,7 +766,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={startNextUnlimitedRound}
-                  className="mt-3 rounded-lg bg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+                  className="mt-2 rounded-lg bg-sky-700 px-3 py-2 text-sm font-semibold text-white hover:bg-sky-600"
                 >
                   Next country
                 </button>
@@ -739,9 +774,9 @@ export default function Home() {
             </div>
           )}
 
-          <aside className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
-            <h2 className="mb-2 text-sm font-semibold text-slate-900">Daily streak</h2>
-            <div className="grid grid-cols-2 gap-2 text-sm text-slate-700 sm:grid-cols-4">
+          <aside className="mt-3 rounded-xl border border-slate-700 bg-slate-950 p-3">
+            <h2 className="mb-1.5 text-sm font-semibold text-slate-100">Daily streak</h2>
+            <div className="grid grid-cols-2 gap-1.5 text-xs text-slate-400 sm:grid-cols-4">
               <p>Current: {dailyStats.streak}</p>
               <p>Best: {dailyStats.bestStreak}</p>
               <p>Wins: {dailyStats.wins}</p>

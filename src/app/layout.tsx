@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Partial Country Outlines",
-  description: "Guess the daily country from a partially revealed silhouette.",
+  title: "GeoGames",
+  description: "A series of geography guessing games.",
 };
 
 export default function RootLayout({
