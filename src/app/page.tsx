@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 
 import Link from "next/link";
-import { FormEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import countryAllowlist from "@/data/country-allowlist.json";
 import {
@@ -13,6 +13,7 @@ import {
   getCountryCode,
   getCountryName,
 } from "@/lib/country-geo";
+import { useComboboxKeyboard } from "@/lib/use-combobox-keyboard";
 
 type CountryAllowlistEntry = {
   code: string;
@@ -336,6 +337,18 @@ export default function Home() {
   const unlimitedRevealedEarly =
     mode === "unlimited" && unlimitedAnswerRevealed && !won && !lost;
 
+  const { highlightedIndex, setHighlightedIndex, setOptionRef, handleKeyDown } =
+    useComboboxKeyboard({
+      suggestions: filteredSuggestions,
+      value: guessValue,
+      setValue: setGuessValue,
+      disabled: completed,
+      isExactMatch: (input) =>
+        countryNames.some(
+          (countryName) => normalizeName(countryName) === normalizeName(input),
+        ),
+    });
+
   const renderShape = useMemo(() => {
     if (!targetCountry) {
       return { path: "", bounds: [[0, 0], [SVG_SIZE, SVG_SIZE]] as [[number, number], [number, number]] };
@@ -412,28 +425,6 @@ export default function Home() {
     };
     setDailyProgress(updatedProgress);
     saveToStorage(STORAGE_PROGRESS_KEY, updatedProgress);
-  }
-
-  function handleGuessInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key !== "Enter" || completed) {
-      return;
-    }
-    const trimmed = guessValue.trim();
-    if (!trimmed) {
-      return;
-    }
-    const exactMatch = countryNames.some(
-      (countryName) => normalizeName(countryName) === normalizeName(trimmed),
-    );
-    if (exactMatch) {
-      return;
-    }
-    const top = filteredSuggestions[0];
-    if (!top) {
-      return;
-    }
-    event.preventDefault();
-    setGuessValue(top);
   }
 
   function handleGuessSubmit(event: FormEvent) {
@@ -546,7 +537,7 @@ export default function Home() {
         <p className="mb-2 text-[0.65rem] font-semibold tracking-[0.18em] text-sky-300/60 uppercase">
           Game Series
         </p>
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="grid gap-2 sm:grid-cols-3">
           <Link
             href="/"
             className="rounded-xl border border-sky-500/50 bg-sky-900/40 px-3 py-2 text-sm text-sky-100"
@@ -561,6 +552,15 @@ export default function Home() {
             <span className="block font-semibold">2) Trade Clues (OEC)</span>
             <span className="block text-xs text-slate-400">
               Guess countries from exports and imports
+            </span>
+          </Link>
+          <Link
+            href="/games/grid"
+            className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 hover:border-sky-600"
+          >
+            <span className="block font-semibold">3) Logic Grid</span>
+            <span className="block text-xs text-slate-400">
+              Deduce a country grid from chained clues
             </span>
           </Link>
         </div>
@@ -684,7 +684,7 @@ export default function Home() {
                   autoComplete="off"
                   value={guessValue}
                   onChange={(event) => setGuessValue(event.target.value)}
-                  onKeyDown={handleGuessInputKeyDown}
+                  onKeyDown={handleKeyDown}
                   disabled={completed}
                   className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-slate-100 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-sky-600 focus:ring-2 focus:ring-sky-700/20 disabled:cursor-not-allowed disabled:bg-slate-800"
                   placeholder="Start typing a country..."
@@ -695,15 +695,19 @@ export default function Home() {
                     role="listbox"
                     className="mt-1 max-h-44 overflow-auto rounded-xl border border-slate-700 bg-slate-950 py-1 shadow-lg shadow-black/30 sm:absolute sm:top-full sm:right-0 sm:left-0 sm:z-20"
                   >
-                    {filteredSuggestions.map((suggestion) => (
+                    {filteredSuggestions.map((suggestion, index) => (
                       <li
                         key={suggestion}
+                        ref={(element) => setOptionRef(index, element)}
                         role="option"
-                        aria-selected={suggestion === filteredSuggestions[0]}
+                        aria-selected={index === highlightedIndex}
+                        onMouseEnter={() => setHighlightedIndex(index)}
                       >
                         <button
                           type="button"
-                          className="w-full px-4 py-2.5 text-left text-sm text-slate-200 hover:bg-slate-800"
+                          className={`w-full px-4 py-2.5 text-left text-sm text-slate-200 hover:bg-slate-800 ${
+                            index === highlightedIndex ? "bg-slate-800" : ""
+                          }`}
                           onMouseDown={(e) => e.preventDefault()}
                           onClick={() => setGuessValue(suggestion)}
                         >

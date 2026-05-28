@@ -9,7 +9,8 @@
     "lint": "eslint",
     "generate:allowlist": "node scripts/generate-country-allowlist.mjs",
     "generate:oec-trade-data": "node scripts/generate-oec-trade-game-data.mjs",
-    "generate:capital-data": "node scripts/generate-capital-coordinates.mjs"
+    "generate:capital-data": "node scripts/generate-capital-coordinates.mjs",
+    "generate:logic-grid-data": "node scripts/generate-logic-grid-data.mjs"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

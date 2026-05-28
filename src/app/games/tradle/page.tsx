@@ -2,13 +2,14 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 
 import Link from "next/link";
-import { FormEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 import countryAllowlistOec from "@/data/country-allowlist-oec.json";
 import capitalsData from "@/data/country-capitals-oec.json";
 import tradeData from "@/data/oec-trade-game-data.json";
 import { HS_SECTIONS, getSection, getSectionId } from "@/lib/hs-sections";
 import { squarify } from "@/lib/treemap";
+import { useComboboxKeyboard } from "@/lib/use-combobox-keyboard";
 
 type GameMode = "daily" | "unlimited";
 
@@ -431,6 +432,18 @@ export default function TradeGamePage() {
   const completed = won || lost || answerRevealed;
   const revealedEarly = answerRevealed && !won && !lost;
 
+  const { highlightedIndex, setHighlightedIndex, setOptionRef, handleKeyDown } =
+    useComboboxKeyboard({
+      suggestions: filteredSuggestions,
+      value: guessValue,
+      setValue: setGuessValue,
+      disabled: completed,
+      isExactMatch: (input) =>
+        countryNames.some(
+          (countryName) => normalizeName(countryName) === normalizeName(input),
+        ),
+    });
+
   function updateDailyAfterCompletion(isWin: boolean, nextGuesses: string[]) {
     if (mode !== "daily" || !dailyProgress) {
       return;
@@ -465,28 +478,6 @@ export default function TradeGamePage() {
     };
     setDailyProgress(updatedProgress);
     saveToStorage(STORAGE_PROGRESS_KEY, updatedProgress);
-  }
-
-  function handleGuessInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (event.key !== "Enter" || completed) {
-      return;
-    }
-    const trimmed = guessValue.trim();
-    if (!trimmed) {
-      return;
-    }
-    const exactMatch = countryNames.some(
-      (countryName) => normalizeName(countryName) === normalizeName(trimmed),
-    );
-    if (exactMatch) {
-      return;
-    }
-    const top = filteredSuggestions[0];
-    if (!top) {
-      return;
-    }
-    event.preventDefault();
-    setGuessValue(top);
   }
 
   function handleGuessSubmit(event: FormEvent) {
@@ -580,7 +571,7 @@ export default function TradeGamePage() {
         <p className="mb-2 text-[0.65rem] font-semibold tracking-[0.18em] text-sky-300/60 uppercase">
           Game Series
         </p>
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="grid gap-2 sm:grid-cols-3">
           <Link
             href="/"
             className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 hover:border-sky-600"
@@ -594,6 +585,15 @@ export default function TradeGamePage() {
           >
             <span className="block font-semibold">2) Trade Clues (OEC)</span>
             <span className="block text-xs text-sky-200/80">You are here</span>
+          </Link>
+          <Link
+            href="/games/grid"
+            className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 hover:border-sky-600"
+          >
+            <span className="block font-semibold">3) Logic Grid</span>
+            <span className="block text-xs text-slate-400">
+              Deduce a country grid from chained clues
+            </span>
           </Link>
         </div>
       </section>
@@ -661,7 +661,7 @@ export default function TradeGamePage() {
               autoComplete="off"
               value={guessValue}
               onChange={(event) => setGuessValue(event.target.value)}
-              onKeyDown={handleGuessInputKeyDown}
+              onKeyDown={handleKeyDown}
               disabled={completed}
               className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-slate-100 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-sky-600 focus:ring-2 focus:ring-sky-700/20 disabled:cursor-not-allowed disabled:bg-slate-800"
               placeholder="Start typing a country..."
@@ -672,15 +672,19 @@ export default function TradeGamePage() {
                 role="listbox"
                 className="mt-1 max-h-44 overflow-auto rounded-xl border border-slate-700 bg-slate-950 py-1 shadow-lg shadow-black/30 sm:absolute sm:top-full sm:right-0 sm:left-0 sm:z-20"
               >
-                {filteredSuggestions.map((suggestion) => (
+                {filteredSuggestions.map((suggestion, index) => (
                   <li
                     key={suggestion}
+                    ref={(element) => setOptionRef(index, element)}
                     role="option"
-                    aria-selected={suggestion === filteredSuggestions[0]}
+                    aria-selected={index === highlightedIndex}
+                    onMouseEnter={() => setHighlightedIndex(index)}
                   >
                     <button
                       type="button"
-                      className="w-full px-4 py-2.5 text-left text-sm text-slate-200 hover:bg-slate-800"
+                      className={`w-full px-4 py-2.5 text-left text-sm text-slate-200 hover:bg-slate-800 ${
+                        index === highlightedIndex ? "bg-slate-800" : ""
+                      }`}
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => setGuessValue(suggestion)}
                     >
