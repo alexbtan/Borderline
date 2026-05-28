@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useState } from "react";
 
+import countryAllowlistOec from "@/data/country-allowlist-oec.json";
 import capitalsData from "@/data/country-capitals-oec.json";
 import tradeData from "@/data/oec-trade-game-data.json";
 import { HS_SECTIONS, getSection, getSectionId } from "@/lib/hs-sections";
@@ -51,7 +52,19 @@ type DailyProgress = {
   won: boolean;
 };
 
-const COUNTRIES = tradeData as TradeCountry[];
+type OecAllowlistEntry = {
+  oecId: string;
+  iso3: string;
+  name: string;
+};
+
+const ALLOWED_OEC_IDS = new Set(
+  (countryAllowlistOec as OecAllowlistEntry[]).map((entry) => entry.oecId),
+);
+
+const COUNTRIES = (tradeData as TradeCountry[]).filter((country) =>
+  ALLOWED_OEC_IDS.has(country.oecId),
+);
 const CAPITALS = capitalsData as CapitalEntry[];
 const MAX_GUESSES = 6;
 const STORAGE_STATS_KEY = "trade-game-daily-stats-v1";
@@ -123,6 +136,46 @@ function haversineDistanceKm(
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
   return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+/** Initial bearing from (lat1,lon1) to (lat2,lon2) in degrees: 0 = N, 90 = E, clockwise. */
+function bearingDegrees(
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number,
+) {
+  const toRad = (deg: number) => (deg * Math.PI) / 180;
+  const toDeg = (rad: number) => (rad * 180) / Math.PI;
+  const φ1 = toRad(lat1);
+  const φ2 = toRad(lat2);
+  const Δλ = toRad(lon2 - lon1);
+  const y = Math.sin(Δλ) * Math.cos(φ2);
+  const x =
+    Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+  const θ = Math.atan2(y, x);
+  return (toDeg(θ) + 360) % 360;
+}
+
+function DirectionArrow({ degrees }: { degrees: number }) {
+  return (
+    <span
+      className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded bg-sky-600 text-white shadow-sm"
+      title={`Toward answer: ${Math.round(degrees)}°`}
+      aria-hidden
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="h-3 w-3"
+        style={{ transform: `rotate(${degrees}deg)` }}
+      >
+        <path
+          fill="currentColor"
+          d="M12 4 L20 18 L12 14.5 L4 18 Z"
+        />
+      </svg>
+    </span>
+  );
 }
 
 function Treemap({
@@ -213,25 +266,30 @@ function Treemap({
             <div
               key={`${title}-${placement.code}`}
               title={`${placement.product} - ${(placement.share * 100).toFixed(2)}% ($${formatUsd(placement.value)})`}
-              className="absolute overflow-hidden border border-white/40 p-1 leading-tight text-slate-900"
+              className="group absolute overflow-hidden border border-white/40 p-1 leading-tight text-slate-900"
               style={{
                 left: `${placement.x}%`,
                 top: `${placement.y}%`,
                 width: `${widthPct}%`,
                 height: `${heightPct}%`,
                 backgroundColor: section.color,
+                transition:
+                  "left 320ms ease, top 320ms ease, width 320ms ease, height 320ms ease, opacity 220ms ease",
               }}
             >
               {showName && (
-                <p className={`line-clamp-3 font-semibold ${nameFont}`}>
+                <p className={`line-clamp-3 overflow-hidden break-words font-semibold ${nameFont}`}>
                   {placement.product}
                 </p>
               )}
               {showShare && (
-                <p className={`opacity-90 ${shareFont}`}>
-                  {(placement.share * 100).toFixed(1)}%
+                <p className={`overflow-hidden text-ellipsis whitespace-nowrap opacity-90 ${shareFont}`}>
+                  {(placement.share * 100).toFixed(1)}% • ${formatUsd(placement.value)}
                 </p>
               )}
+              <div className="pointer-events-none absolute top-1 left-1 z-20 max-w-[90%] -translate-y-1 rounded bg-slate-900/95 px-2 py-1 text-[0.62rem] font-medium text-slate-100 opacity-0 shadow-lg transition duration-150 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="block truncate">{placement.product}</span>
+              </div>
             </div>
           );
         })}
@@ -284,7 +342,7 @@ export default function TradeGamePage() {
   const [guessValue, setGuessValue] = useState("");
   const [dailyStats, setDailyStats] = useState<DailyStats>(defaultStats);
   const [dailyProgress, setDailyProgress] = useState<DailyProgress | null>(null);
-  const [unlimitedAnswerRevealed, setUnlimitedAnswerRevealed] = useState(false);
+  const [answerRevealed, setAnswerRevealed] = useState(false);
   const capitalsByIso3 = useMemo(
     () => new Map(CAPITALS.map((entry) => [entry.iso3, entry])),
     [],
@@ -321,7 +379,7 @@ export default function TradeGamePage() {
       return;
     }
     if (mode === "daily") {
-      setUnlimitedAnswerRevealed(false);
+      setAnswerRevealed(false);
       const today = getTodayKey();
       const savedProgress = loadFromStorage<DailyProgress>(STORAGE_PROGRESS_KEY);
       const fromSaved =
@@ -343,6 +401,11 @@ export default function TradeGamePage() {
       setGuesses(nextProgress.guesses);
       setDailyProgress(nextProgress);
       saveToStorage(STORAGE_PROGRESS_KEY, nextProgress);
+      const revealedByButton =
+        nextProgress.completed &&
+        !nextProgress.won &&
+        nextProgress.guesses.length < MAX_GUESSES;
+      setAnswerRevealed(revealedByButton);
       return;
     }
 
@@ -350,7 +413,7 @@ export default function TradeGamePage() {
     setTarget(randomCountry);
     setGuesses([]);
     setGuessValue("");
-    setUnlimitedAnswerRevealed(false);
+    setAnswerRevealed(false);
   }, [mode]);
 
   const targetName = target?.name ?? "";
@@ -365,8 +428,8 @@ export default function TradeGamePage() {
   );
   const won = guesses.some((guess) => normalizeName(guess) === normalizeName(targetName));
   const lost = !won && guesses.length >= MAX_GUESSES;
-  const completed = won || lost || (mode === "unlimited" && unlimitedAnswerRevealed);
-  const unlimitedRevealedEarly = mode === "unlimited" && unlimitedAnswerRevealed && !won && !lost;
+  const completed = won || lost || answerRevealed;
+  const revealedEarly = answerRevealed && !won && !lost;
 
   function updateDailyAfterCompletion(isWin: boolean, nextGuesses: string[]) {
     if (mode !== "daily" || !dailyProgress) {
@@ -462,6 +525,17 @@ export default function TradeGamePage() {
     }
   }
 
+  function revealAnswer() {
+    if (!target || completed) {
+      return;
+    }
+    setAnswerRevealed(true);
+    setGuessValue("");
+    if (mode === "daily") {
+      updateDailyAfterCompletion(false, guesses);
+    }
+  }
+
   function startNextUnlimitedRound() {
     if (mode !== "unlimited" || !COUNTRIES.length) {
       return;
@@ -477,7 +551,19 @@ export default function TradeGamePage() {
     setTarget(nextCountry);
     setGuesses([]);
     setGuessValue("");
-    setUnlimitedAnswerRevealed(false);
+    setAnswerRevealed(false);
+  }
+
+  if (!COUNTRIES.length) {
+    return (
+      <main className="mx-auto flex min-h-dvh w-full max-w-5xl flex-col px-3 py-3 text-slate-100 sm:px-6 sm:py-4">
+        <p className="text-red-300">
+          No countries in the game pool. Add entries to{" "}
+          <code className="text-red-200">src/data/country-allowlist-oec.json</code> that exist in{" "}
+          <code className="text-red-200">oec-trade-game-data.json</code>.
+        </p>
+      </main>
+    );
   }
 
   if (!target) {
@@ -613,10 +699,10 @@ export default function TradeGamePage() {
             >
               Guess
             </button>
-            {mode === "unlimited" && !completed && (
+            {!completed && (
               <button
                 type="button"
-                onClick={() => setUnlimitedAnswerRevealed(true)}
+                onClick={revealAnswer}
                 className="w-full shrink-0 rounded-xl border border-slate-600 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-sky-600 hover:bg-slate-700 sm:w-auto"
               >
                 Reveal answer
@@ -631,29 +717,39 @@ export default function TradeGamePage() {
           const isCorrect = normalizeName(guess) === normalizeName(target.name);
           const guessedCountry = countriesByName.get(normalizeName(guess));
           const guessedCapital = guessedCountry ? capitalsByIso3.get(guessedCountry.iso3) : null;
-          const distanceKm =
+          const hasCoords =
             guessedCapital?.lat != null &&
-            guessedCapital.lon != null &&
+            guessedCapital?.lon != null &&
             targetCapital?.lat != null &&
-            targetCapital.lon != null
-              ? haversineDistanceKm(
-                  guessedCapital.lat,
-                  guessedCapital.lon,
-                  targetCapital.lat,
-                  targetCapital.lon,
-                )
-              : null;
+            targetCapital?.lon != null;
+          const distanceKm = hasCoords
+            ? haversineDistanceKm(
+                guessedCapital.lat!,
+                guessedCapital.lon!,
+                targetCapital.lat!,
+                targetCapital.lon!,
+              )
+            : null;
+          const bearingDeg = hasCoords
+            ? bearingDegrees(
+                guessedCapital.lat!,
+                guessedCapital.lon!,
+                targetCapital.lat!,
+                targetCapital.lon!,
+              )
+            : null;
           return (
             <span
               key={guess}
-              className={`rounded-full px-3 py-1 text-sm font-medium ${
+              className={`inline-flex max-w-full flex-wrap items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium ${
                 isCorrect ? "bg-emerald-400 text-emerald-950" : "bg-slate-800 text-slate-300"
               }`}
             >
-              {guess}
-              {!isCorrect && distanceKm !== null && (
-                <span className="ml-1 text-xs font-semibold text-sky-300">
-                  ({Math.round(distanceKm)} km)
+              <span className="min-w-0 truncate">{guess}</span>
+              {!isCorrect && distanceKm !== null && bearingDeg !== null && (
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-sky-300">
+                  <DirectionArrow degrees={bearingDeg} />
+                  <span>{Math.round(distanceKm).toLocaleString("en")} km</span>
                 </span>
               )}
             </span>
@@ -666,7 +762,7 @@ export default function TradeGamePage() {
           <p className="text-sm font-medium text-slate-300">
             {won
               ? `Correct in ${guesses.length} guess${guesses.length === 1 ? "" : "es"}`
-              : unlimitedRevealedEarly
+              : revealedEarly
                 ? "Answer revealed."
                 : "No more guesses left."}
           </p>

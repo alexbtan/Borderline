@@ -129,11 +129,38 @@ async function main() {
     )
     .sort((a, b) => a.name.localeCompare(b.name, "en"));
 
-  const allowlist = rows.map((country) => ({
-    oecId: country.oecId,
-    iso3: country.iso3,
-    name: country.name,
-  }));
+  const byOecId = new Map(rows.map((country) => [country.oecId, country]));
+
+  let allowlist;
+  if (fs.existsSync(OUT_ALLOWLIST)) {
+    const existing = JSON.parse(fs.readFileSync(OUT_ALLOWLIST, "utf8"));
+    allowlist = existing
+      .map((entry) => {
+        const fresh = byOecId.get(entry.oecId);
+        if (!fresh) {
+          return null;
+        }
+        return {
+          oecId: fresh.oecId,
+          iso3: fresh.iso3,
+          name: fresh.name,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.name.localeCompare(b.name, "en"));
+    const dropped = existing.length - allowlist.length;
+    if (dropped > 0) {
+      console.log(
+        `Allowlist: kept ${allowlist.length} entries (${dropped} removed — no longer in OEC data)`,
+      );
+    }
+  } else {
+    allowlist = rows.map((country) => ({
+      oecId: country.oecId,
+      iso3: country.iso3,
+      name: country.name,
+    }));
+  }
 
   fs.mkdirSync(path.dirname(OUT_DATA), { recursive: true });
   fs.writeFileSync(OUT_DATA, `${JSON.stringify(rows, null, 2)}\n`, "utf8");
@@ -141,6 +168,9 @@ async function main() {
 
   console.log(`Wrote ${rows.length} countries to ${path.relative(process.cwd(), OUT_DATA)}`);
   console.log(`Wrote ${allowlist.length} entries to ${path.relative(process.cwd(), OUT_ALLOWLIST)}`);
+  console.log(
+    `Game pool: ${allowlist.length} allowlisted of ${rows.length} with full export+import data`,
+  );
 }
 
 main().catch((error) => {

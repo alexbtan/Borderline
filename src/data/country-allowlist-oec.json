@@ -15,24 +15,9 @@
     "name": "Algeria"
   },
   {
-    "oecId": "ocasm",
-    "iso3": "ASM",
-    "name": "American Samoa"
-  },
-  {
-    "oecId": "euand",
-    "iso3": "AND",
-    "name": "Andorra"
-  },
-  {
     "oecId": "afago",
     "iso3": "AGO",
     "name": "Angola"
-  },
-  {
-    "oecId": "naaia",
-    "iso3": "AIA",
-    "name": "Anguilla"
   },
   {
     "oecId": "naatg",
@@ -48,11 +33,6 @@
     "oecId": "asarm",
     "iso3": "ARM",
     "name": "Armenia"
-  },
-  {
-    "oecId": "naabw",
-    "iso3": "ABW",
-    "name": "Aruba"
   },
   {
     "oecId": "ocaus",
@@ -110,11 +90,6 @@
     "name": "Benin"
   },
   {
-    "oecId": "nabmu",
-    "iso3": "BMU",
-    "name": "Bermuda"
-  },
-  {
     "oecId": "asbtn",
     "iso3": "BTN",
     "name": "Bhutan"
@@ -123,11 +98,6 @@
     "oecId": "sabol",
     "iso3": "BOL",
     "name": "Bolivia"
-  },
-  {
-    "oecId": "nabes",
-    "iso3": "BES",
-    "name": "Bonaire"
   },
   {
     "oecId": "eubih",
@@ -143,16 +113,6 @@
     "oecId": "sabra",
     "iso3": "BRA",
     "name": "Brazil"
-  },
-  {
-    "oecId": "asiot",
-    "iso3": "IOT",
-    "name": "British Indian Ocean Territory"
-  },
-  {
-    "oecId": "navgb",
-    "iso3": "VGB",
-    "name": "British Virgin Islands"
   },
   {
     "oecId": "asbrn",
@@ -172,7 +132,7 @@
   {
     "oecId": "asmmr",
     "iso3": "MMR",
-    "name": "Burma"
+    "name": "Myanmar"
   },
   {
     "oecId": "afbdi",
@@ -200,11 +160,6 @@
     "name": "Cape Verde"
   },
   {
-    "oecId": "nacym",
-    "iso3": "CYM",
-    "name": "Cayman Islands"
-  },
-  {
     "oecId": "afcaf",
     "iso3": "CAF",
     "name": "Central African Republic"
@@ -227,17 +182,7 @@
   {
     "oecId": "astwn",
     "iso3": "TWN",
-    "name": "Chinese Taipei"
-  },
-  {
-    "oecId": "ascxr",
-    "iso3": "CXR",
-    "name": "Christmas Island"
-  },
-  {
-    "oecId": "ascck",
-    "iso3": "CCK",
-    "name": "Cocos (Keeling) Islands"
+    "name": "Taiwan"
   },
   {
     "oecId": "sacol",
@@ -248,11 +193,6 @@
     "oecId": "afcom",
     "iso3": "COM",
     "name": "Comoros"
-  },
-  {
-    "oecId": "occok",
-    "iso3": "COK",
-    "name": "Cook Islands"
   },
   {
     "oecId": "nacri",
@@ -273,11 +213,6 @@
     "oecId": "nacub",
     "iso3": "CUB",
     "name": "Cuba"
-  },
-  {
-    "oecId": "nacuw",
-    "iso3": "CUW",
-    "name": "Curaçao"
   },
   {
     "oecId": "ascyp",
@@ -355,11 +290,6 @@
     "name": "Ethiopia"
   },
   {
-    "oecId": "saflk",
-    "iso3": "FLK",
-    "name": "Falkland Islands"
-  },
-  {
     "oecId": "ocfji",
     "iso3": "FJI",
     "name": "Fiji"
@@ -373,16 +303,6 @@
     "oecId": "eufra",
     "iso3": "FRA",
     "name": "France"
-  },
-  {
-    "oecId": "ocpyf",
-    "iso3": "PYF",
-    "name": "French Polynesia"
-  },
-  {
-    "oecId": "xxatf",
-    "iso3": "ATF",
-    "name": "French Southern Territories"
   },
   {
     "oecId": "afgab",
@@ -410,11 +330,6 @@
     "name": "Ghana"
   },
   {
-    "oecId": "eugib",
-    "iso3": "GIB",
-    "name": "Gibraltar"
-  },
-  {
     "oecId": "eugrc",
     "iso3": "GRC",
     "name": "Greece"
@@ -428,11 +343,6 @@
     "oecId": "nagrd",
     "iso3": "GRD",
     "name": "Grenada"
-  },
-  {
-    "oecId": "ocgum",
-    "iso3": "GUM",
-    "name": "Guam"
   },
   {
     "oecId": "nagtm",
@@ -463,11 +373,6 @@
     "oecId": "nahnd",
     "iso3": "HND",
     "name": "Honduras"
-  },
-  {
-    "oecId": "ashkg",
-    "iso3": "HKG",
-    "name": "Hong Kong"
   },
   {
     "oecId": "euhun",
@@ -595,11 +500,6 @@
     "name": "Luxembourg"
   },
   {
-    "oecId": "asmac",
-    "iso3": "MAC",
-    "name": "Macau"
-  },
-  {
     "oecId": "afmdg",
     "iso3": "MDG",
     "name": "Madagascar"
@@ -670,11 +570,6 @@
     "name": "Montenegro"
   },
   {
-    "oecId": "namsr",
-    "iso3": "MSR",
-    "name": "Montserrat"
-  },
-  {
     "oecId": "afmar",
     "iso3": "MAR",
     "name": "Morocco"
@@ -690,11 +585,6 @@
     "name": "Namibia"
   },
   {
-    "oecId": "ocnru",
-    "iso3": "NRU",
-    "name": "Nauru"
-  },
-  {
     "oecId": "asnpl",
     "iso3": "NPL",
     "name": "Nepal"
@@ -703,11 +593,6 @@
     "oecId": "eunld",
     "iso3": "NLD",
     "name": "Netherlands"
-  },
-  {
-    "oecId": "ocncl",
-    "iso3": "NCL",
-    "name": "New Caledonia"
   },
   {
     "oecId": "ocnzl",
@@ -730,16 +615,6 @@
     "name": "Nigeria"
   },
   {
-    "oecId": "ocniu",
-    "iso3": "NIU",
-    "name": "Niue"
-  },
-  {
-    "oecId": "ocnfk",
-    "iso3": "NFK",
-    "name": "Norfolk Island"
-  },
-  {
     "oecId": "asprk",
     "iso3": "PRK",
     "name": "North Korea"
@@ -748,11 +623,6 @@
     "oecId": "eumkd",
     "iso3": "MKD",
     "name": "North Macedonia"
-  },
-  {
-    "oecId": "ocmnp",
-    "iso3": "MNP",
-    "name": "Northern Mariana Islands"
   },
   {
     "oecId": "eunor",
@@ -768,11 +638,6 @@
     "oecId": "aspak",
     "iso3": "PAK",
     "name": "Pakistan"
-  },
-  {
-    "oecId": "ocplw",
-    "iso3": "PLW",
-    "name": "Palau"
   },
   {
     "oecId": "aspse",
@@ -803,11 +668,6 @@
     "oecId": "asphl",
     "iso3": "PHL",
     "name": "Philippines"
-  },
-  {
-    "oecId": "ocpcn",
-    "iso3": "PCN",
-    "name": "Pitcairn Islands"
   },
   {
     "oecId": "eupol",
@@ -843,41 +703,6 @@
     "oecId": "afrwa",
     "iso3": "RWA",
     "name": "Rwanda"
-  },
-  {
-    "oecId": "nablm",
-    "iso3": "BLM",
-    "name": "Saint Barthélemy"
-  },
-  {
-    "oecId": "afshn",
-    "iso3": "SHN",
-    "name": "Saint Helena"
-  },
-  {
-    "oecId": "nakna",
-    "iso3": "KNA",
-    "name": "Saint Kitts and Nevis"
-  },
-  {
-    "oecId": "nalca",
-    "iso3": "LCA",
-    "name": "Saint Lucia"
-  },
-  {
-    "oecId": "namaf",
-    "iso3": "MAF",
-    "name": "Saint Martin"
-  },
-  {
-    "oecId": "naspm",
-    "iso3": "SPM",
-    "name": "Saint Pierre and Miquelon"
-  },
-  {
-    "oecId": "navct",
-    "iso3": "VCT",
-    "name": "Saint Vincent and the Grenadines"
   },
   {
     "oecId": "ocwsm",
@@ -1020,16 +845,6 @@
     "name": "Togo"
   },
   {
-    "oecId": "octkl",
-    "iso3": "TKL",
-    "name": "Tokelau"
-  },
-  {
-    "oecId": "octon",
-    "iso3": "TON",
-    "name": "Tonga"
-  },
-  {
     "oecId": "natto",
     "iso3": "TTO",
     "name": "Trinidad and Tobago"
@@ -1048,11 +863,6 @@
     "oecId": "astkm",
     "iso3": "TKM",
     "name": "Turkmenistan"
-  },
-  {
-    "oecId": "natca",
-    "iso3": "TCA",
-    "name": "Turks and Caicos Islands"
   },
   {
     "oecId": "octuv",
@@ -1108,11 +918,6 @@
     "oecId": "asvnm",
     "iso3": "VNM",
     "name": "Vietnam"
-  },
-  {
-    "oecId": "ocwlf",
-    "iso3": "WLF",
-    "name": "Wallis and Futuna"
   },
   {
     "oecId": "asyem",
