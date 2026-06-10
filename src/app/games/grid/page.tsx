@@ -335,7 +335,7 @@ export default function LogicGridPage() {
         <p className="mb-2 text-[0.65rem] font-semibold tracking-[0.18em] text-sky-300/60 uppercase">
           Game Series
         </p>
-        <div className="grid gap-2 sm:grid-cols-3">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           <Link
             href="/"
             className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 hover:border-sky-600"
@@ -356,6 +356,15 @@ export default function LogicGridPage() {
           >
             <span className="block font-semibold">3) Logic Grid</span>
             <span className="block text-xs text-sky-200/80">You are here</span>
+          </Link>
+          <Link
+            href="/games/figures"
+            className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200 hover:border-sky-600"
+          >
+            <span className="block font-semibold">4) Born & Died</span>
+            <span className="block text-xs text-slate-400">
+              Guess figures from map dots and dates
+            </span>
           </Link>
         </div>
       </section>

@@ -1,0 +1,1184 @@
+[
+  {
+    "id": "ada-lovelace",
+    "name": "Ada Lovelace",
+    "birthLat": 51.5074,
+    "birthLon": -0.1278,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "10 December 1815",
+    "deathDate": "27 November 1852"
+  },
+  {
+    "id": "adam-smith",
+    "name": "Adam Smith",
+    "birthLat": 56.643,
+    "birthLon": -3.67,
+    "deathLat": 55.9533,
+    "deathLon": -3.1883,
+    "birthDate": "16 June 1723",
+    "deathDate": "17 July 1790"
+  },
+  {
+    "id": "akbar-the-great",
+    "name": "Akbar the Great",
+    "birthLat": 25.3628,
+    "birthLon": 69.7417,
+    "deathLat": 27.1767,
+    "deathLon": 78.0081,
+    "birthDate": "15 October 1542",
+    "deathDate": "27 October 1605"
+  },
+  {
+    "id": "al-khwarizmi",
+    "name": "Al-Khwarizmi",
+    "birthLat": 39.7747,
+    "birthLon": 64.4286,
+    "deathLat": 33.3152,
+    "deathLon": 44.3661,
+    "birthDate": "c. 780",
+    "deathDate": "c. 850"
+  },
+  {
+    "id": "aleksandr-solzhenitsyn",
+    "name": "Aleksandr Solzhenitsyn",
+    "birthLat": 43.913,
+    "birthLon": 42.7208,
+    "deathLat": 55.7558,
+    "deathLon": 37.6173,
+    "birthDate": "11 December 1918",
+    "deathDate": "3 August 2008"
+  },
+  {
+    "id": "ashoka",
+    "name": "Ashoka",
+    "birthLat": 25.5941,
+    "birthLon": 85.1376,
+    "deathLat": 25.5941,
+    "deathLon": 85.1376,
+    "birthDate": "304 BC",
+    "deathDate": "232 BC"
+  },
+  {
+    "id": "atahualpa",
+    "name": "Atahualpa",
+    "birthLat": -0.1807,
+    "birthLon": -78.4678,
+    "deathLat": -9.19,
+    "deathLon": -77.989,
+    "birthDate": "c. 1502",
+    "deathDate": "26 July 1533"
+  },
+  {
+    "id": "attila-the-hun",
+    "name": "Attila the Hun",
+    "birthLat": 47.5,
+    "birthLon": 19,
+    "deathLat": 46.5667,
+    "deathLon": 21.35,
+    "birthDate": "c. 406",
+    "deathDate": "453"
+  },
+  {
+    "id": "benito-juarez",
+    "name": "Benito Juárez",
+    "aliases": [
+      "Benito Juarez"
+    ],
+    "birthLat": 17.0732,
+    "birthLon": -96.7266,
+    "deathLat": 19.4326,
+    "deathLon": -99.1332,
+    "birthDate": "21 March 1806",
+    "deathDate": "18 July 1872"
+  },
+  {
+    "id": "boudica",
+    "name": "Boudica",
+    "aliases": [
+      "Boadicea"
+    ],
+    "birthLat": 52.5,
+    "birthLon": 1,
+    "deathLat": 52.6333,
+    "deathLon": 0.7333,
+    "birthDate": "c. 30 AD",
+    "deathDate": "c. 61 AD"
+  },
+  {
+    "id": "catherine-de-medici",
+    "name": "Catherine de Medici",
+    "birthLat": 43.7696,
+    "birthLon": 11.2558,
+    "deathLat": 47.5861,
+    "deathLon": 1.3359,
+    "birthDate": "13 April 1519",
+    "deathDate": "5 January 1589"
+  },
+  {
+    "id": "chiang-kai-shek",
+    "name": "Chiang Kai-shek",
+    "birthLat": 29.654,
+    "birthLon": 121.406,
+    "deathLat": 25.033,
+    "deathLon": 121.5654,
+    "birthDate": "31 October 1887",
+    "deathDate": "5 April 1975"
+  },
+  {
+    "id": "constantine-the-great",
+    "name": "Constantine the Great",
+    "birthLat": 43.8563,
+    "birthLon": 18.4131,
+    "deathLat": 41.0082,
+    "deathLon": 28.9784,
+    "birthDate": "27 February 272",
+    "deathDate": "22 May 337"
+  },
+  {
+    "id": "crazy-horse",
+    "name": "Crazy Horse",
+    "birthLat": 43,
+    "birthLon": -102,
+    "deathLat": 43,
+    "deathLon": -102,
+    "birthDate": "c. 1840",
+    "deathDate": "5 September 1877"
+  },
+  {
+    "id": "cyrus-the-great",
+    "name": "Cyrus the Great",
+    "birthLat": 32,
+    "birthLon": 50,
+    "deathLat": 40.5,
+    "deathLon": 61,
+    "birthDate": "c. 600 BC",
+    "deathDate": "530 BC"
+  },
+  {
+    "id": "david-livingstone",
+    "name": "David Livingstone",
+    "birthLat": 55.8642,
+    "birthLon": -4.2518,
+    "deathLat": -11.1874,
+    "deathLon": 28.8497,
+    "birthDate": "19 March 1813",
+    "deathDate": "1 May 1873"
+  },
+  {
+    "id": "eleanor-of-aquitaine",
+    "name": "Eleanor of Aquitaine",
+    "birthLat": 45.1833,
+    "birthLon": 0.7167,
+    "deathLat": 47.3941,
+    "deathLon": 0.6848,
+    "birthDate": "c. 1122",
+    "deathDate": "1 April 1204"
+  },
+  {
+    "id": "emiliano-zapata",
+    "name": "Emiliano Zapata",
+    "birthLat": 18.8333,
+    "birthLon": -98.9333,
+    "deathLat": 18.8333,
+    "deathLon": -98.9333,
+    "birthDate": "8 August 1879",
+    "deathDate": "10 April 1919"
+  },
+  {
+    "id": "emily-dickinson",
+    "name": "Emily Dickinson",
+    "birthLat": 42.3995,
+    "birthLon": -72.5276,
+    "deathLat": 42.3995,
+    "deathLon": -72.5276,
+    "birthDate": "10 December 1830",
+    "deathDate": "15 May 1886"
+  },
+  {
+    "id": "ernest-shackleton",
+    "name": "Ernest Shackleton",
+    "birthLat": 53.3498,
+    "birthLon": -6.2603,
+    "deathLat": -54.2833,
+    "deathLon": -36.5,
+    "birthDate": "15 February 1874",
+    "deathDate": "5 January 1922"
+  },
+  {
+    "id": "ferdinand-magellan",
+    "name": "Ferdinand Magellan",
+    "birthLat": 41.1579,
+    "birthLon": -8.6291,
+    "deathLat": 10.3157,
+    "deathLon": 123.7654,
+    "birthDate": "c. 1480",
+    "deathDate": "27 April 1521"
+  },
+  {
+    "id": "francisco-pizarro",
+    "name": "Francisco Pizarro",
+    "birthLat": 39.4753,
+    "birthLon": -6.3724,
+    "deathLat": -12.0464,
+    "deathLon": -77.0428,
+    "birthDate": "c. 1478",
+    "deathDate": "26 June 1541"
+  },
+  {
+    "id": "frederick-the-great",
+    "name": "Frederick the Great",
+    "birthLat": 52.52,
+    "birthLon": 13.405,
+    "deathLat": 52.4047,
+    "deathLon": 13.0436,
+    "birthDate": "24 January 1712",
+    "deathDate": "17 August 1786"
+  },
+  {
+    "id": "friedrich-nietzsche",
+    "name": "Friedrich Nietzsche",
+    "aliases": [
+      "Nietzsche"
+    ],
+    "birthLat": 51.15,
+    "birthLon": 12.4333,
+    "deathLat": 44.4056,
+    "deathLon": 8.9463,
+    "birthDate": "15 October 1844",
+    "deathDate": "25 August 1900"
+  },
+  {
+    "id": "george-orwell",
+    "name": "George Orwell",
+    "aliases": [
+      "Eric Blair"
+    ],
+    "birthLat": 25.5941,
+    "birthLon": 85.1376,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "25 June 1903",
+    "deathDate": "21 January 1950"
+  },
+  {
+    "id": "geronimo",
+    "name": "Geronimo",
+    "birthLat": 33,
+    "birthLon": -108,
+    "deathLat": 34,
+    "deathLon": -98,
+    "birthDate": "June 1829",
+    "deathDate": "17 February 1909"
+  },
+  {
+    "id": "grigori-rasputin",
+    "name": "Grigori Rasputin",
+    "aliases": [
+      "Rasputin"
+    ],
+    "birthLat": 57.7667,
+    "birthLon": 61.75,
+    "deathLat": 59.9311,
+    "deathLon": 30.3609,
+    "birthDate": "21 January 1869",
+    "deathDate": "30 December 1916"
+  },
+  {
+    "id": "haile-selassie",
+    "name": "Haile Selassie",
+    "birthLat": 9,
+    "birthLon": 38.75,
+    "deathLat": 9.032,
+    "deathLon": 38.7469,
+    "birthDate": "23 July 1892",
+    "deathDate": "27 August 1975"
+  },
+  {
+    "id": "hammurabi",
+    "name": "Hammurabi",
+    "birthLat": 33.3152,
+    "birthLon": 44.3661,
+    "deathLat": 33.3152,
+    "deathLon": 44.3661,
+    "birthDate": "c. 1810 BC",
+    "deathDate": "c. 1750 BC"
+  },
+  {
+    "id": "hannibal",
+    "name": "Hannibal",
+    "aliases": [
+      "Hannibal Barca"
+    ],
+    "birthLat": 36.8528,
+    "birthLon": 10.3233,
+    "deathLat": 40.7314,
+    "deathLon": 29.7775,
+    "birthDate": "247 BC",
+    "deathDate": "183 BC"
+  },
+  {
+    "id": "harriet-beecher-stowe",
+    "name": "Harriet Beecher Stowe",
+    "birthLat": 41.3083,
+    "birthLon": -72.9279,
+    "deathLat": 41.3083,
+    "deathLon": -72.9279,
+    "birthDate": "14 June 1811",
+    "deathDate": "1 July 1896"
+  },
+  {
+    "id": "hatshepsut",
+    "name": "Hatshepsut",
+    "birthLat": 25.7208,
+    "birthLon": 32.6103,
+    "deathLat": 25.7402,
+    "deathLon": 32.6014,
+    "birthDate": "c. 1507 BC",
+    "deathDate": "1458 BC"
+  },
+  {
+    "id": "heinrich-schliemann",
+    "name": "Heinrich Schliemann",
+    "birthLat": 53.6355,
+    "birthLon": 9.8451,
+    "deathLat": 40.8518,
+    "deathLon": 14.2681,
+    "birthDate": "6 January 1822",
+    "deathDate": "26 December 1890"
+  },
+  {
+    "id": "hernan-cortes",
+    "name": "Hernán Cortés",
+    "aliases": [
+      "Hernan Cortes"
+    ],
+    "birthLat": 37.3772,
+    "birthLon": -5.8448,
+    "deathLat": 19.4326,
+    "deathLon": -99.1332,
+    "birthDate": "1485",
+    "deathDate": "2 December 1547"
+  },
+  {
+    "id": "hypatia",
+    "name": "Hypatia",
+    "birthLat": 31.2001,
+    "birthLon": 29.9187,
+    "deathLat": 31.2001,
+    "deathLon": 29.9187,
+    "birthDate": "c. 350 AD",
+    "deathDate": "March 415"
+  },
+  {
+    "id": "ibn-battuta",
+    "name": "Ibn Battuta",
+    "birthLat": 35.7595,
+    "birthLon": -5.834,
+    "deathLat": 31.6295,
+    "deathLon": -7.9811,
+    "birthDate": "24 February 1304",
+    "deathDate": "1369"
+  },
+  {
+    "id": "ibn-khaldun",
+    "name": "Ibn Khaldun",
+    "birthLat": 36.365,
+    "birthLon": 10.535,
+    "deathLat": 30.0444,
+    "deathLon": 31.2357,
+    "birthDate": "27 May 1332",
+    "deathDate": "17 March 1406"
+  },
+  {
+    "id": "ibn-rushd",
+    "name": "Ibn Rushd",
+    "aliases": [
+      "Averroes"
+    ],
+    "birthLat": 37.8882,
+    "birthLon": -4.7794,
+    "deathLat": 34.0209,
+    "deathLon": -6.8416,
+    "birthDate": "14 April 1126",
+    "deathDate": "10 December 1198"
+  },
+  {
+    "id": "ibn-sina",
+    "name": "Ibn Sina",
+    "aliases": [
+      "Avicenna"
+    ],
+    "birthLat": 39.7681,
+    "birthLon": 64.4556,
+    "deathLat": 34.7983,
+    "deathLon": 48.5146,
+    "birthDate": "c. 980",
+    "deathDate": "June 1037"
+  },
+  {
+    "id": "idi-amin",
+    "name": "Idi Amin",
+    "birthLat": 3.406,
+    "birthLon": 30.719,
+    "deathLat": 21.5433,
+    "deathLon": 39.1728,
+    "birthDate": "c. 1925",
+    "deathDate": "16 August 2003"
+  },
+  {
+    "id": "immanuel-kant",
+    "name": "Immanuel Kant",
+    "birthLat": 54.7104,
+    "birthLon": 20.4522,
+    "deathLat": 54.7104,
+    "deathLon": 20.4522,
+    "birthDate": "22 April 1724",
+    "deathDate": "12 February 1804"
+  },
+  {
+    "id": "isabella-of-castile",
+    "name": "Isabella I of Castile",
+    "aliases": [
+      "Queen Isabella"
+    ],
+    "birthLat": 42,
+    "birthLon": -2.45,
+    "deathLat": 42,
+    "deathLon": -2.45,
+    "birthDate": "22 April 1451",
+    "deathDate": "26 November 1504"
+  },
+  {
+    "id": "isadora-duncan",
+    "name": "Isadora Duncan",
+    "birthLat": 37.7749,
+    "birthLon": -122.4194,
+    "deathLat": 43.7102,
+    "deathLon": 7.262,
+    "birthDate": "27 May 1877",
+    "deathDate": "14 September 1927"
+  },
+  {
+    "id": "ivan-the-terrible",
+    "name": "Ivan the Terrible",
+    "birthLat": 55.6678,
+    "birthLon": 37.2633,
+    "deathLat": 55.7558,
+    "deathLon": 37.6173,
+    "birthDate": "25 August 1530",
+    "deathDate": "28 March 1584"
+  },
+  {
+    "id": "james-cook",
+    "name": "James Cook",
+    "birthLat": 54.4858,
+    "birthLon": -0.6206,
+    "deathLat": 19.5,
+    "deathLon": -155,
+    "birthDate": "7 November 1728",
+    "deathDate": "14 February 1779"
+  },
+  {
+    "id": "jean-jacques-rousseau",
+    "name": "Jean-Jacques Rousseau",
+    "aliases": [
+      "Rousseau"
+    ],
+    "birthLat": 47.2044,
+    "birthLon": 5.3947,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "28 June 1712",
+    "deathDate": "2 July 1778"
+  },
+  {
+    "id": "john-locke",
+    "name": "John Locke",
+    "birthLat": 51.4545,
+    "birthLon": -2.5879,
+    "deathLat": 51.4545,
+    "deathLon": -2.5879,
+    "birthDate": "29 August 1632",
+    "deathDate": "28 October 1704"
+  },
+  {
+    "id": "jose-de-san-martin",
+    "name": "José de San Martín",
+    "aliases": [
+      "Jose de San Martin"
+    ],
+    "birthLat": -34.6037,
+    "birthLon": -58.3816,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "25 February 1778",
+    "deathDate": "17 August 1850"
+  },
+  {
+    "id": "jose-marti",
+    "name": "José Martí",
+    "aliases": [
+      "Jose Marti"
+    ],
+    "birthLat": 23.1136,
+    "birthLon": -82.3666,
+    "deathLat": 19.4326,
+    "deathLon": -99.1332,
+    "birthDate": "28 January 1853",
+    "deathDate": "19 May 1895"
+  },
+  {
+    "id": "joseph-conrad",
+    "name": "Joseph Conrad",
+    "birthLat": 49.8938,
+    "birthLon": 28.6026,
+    "deathLat": 51.216,
+    "deathLon": 1.098,
+    "birthDate": "3 December 1857",
+    "deathDate": "3 August 1924"
+  },
+  {
+    "id": "justinian",
+    "name": "Justinian",
+    "aliases": [
+      "Justinian I"
+    ],
+    "birthLat": 41.9981,
+    "birthLon": 21.4254,
+    "deathLat": 41.0082,
+    "deathLon": 28.9784,
+    "birthDate": "482",
+    "deathDate": "14 November 565"
+  },
+  {
+    "id": "kaiser-wilhelm-ii",
+    "name": "Kaiser Wilhelm II",
+    "birthLat": 52.52,
+    "birthLon": 13.405,
+    "deathLat": 52.0943,
+    "deathLon": 4.2667,
+    "birthDate": "27 January 1859",
+    "deathDate": "4 June 1941"
+  },
+  {
+    "id": "kublai-khan",
+    "name": "Kublai Khan",
+    "birthLat": 47.5,
+    "birthLon": 121,
+    "deathLat": 39.9042,
+    "deathLon": 116.4074,
+    "birthDate": "23 September 1215",
+    "deathDate": "18 February 1294"
+  },
+  {
+    "id": "kwame-nkrumah",
+    "name": "Kwame Nkrumah",
+    "birthLat": 4.935,
+    "birthLon": -2.325,
+    "deathLat": 44.4268,
+    "deathLon": 26.1025,
+    "birthDate": "21 September 1909",
+    "deathDate": "27 April 1972"
+  },
+  {
+    "id": "leon-trotsky",
+    "name": "Leon Trotsky",
+    "aliases": [
+      "Trotsky"
+    ],
+    "birthLat": 47.008,
+    "birthLon": 32.528,
+    "deathLat": 19.3467,
+    "deathLon": -99.1618,
+    "birthDate": "7 November 1879",
+    "deathDate": "21 August 1940"
+  },
+  {
+    "id": "mansa-musa",
+    "name": "Mansa Musa",
+    "birthLat": 16.7666,
+    "birthLon": -3.0026,
+    "deathLat": 16.7666,
+    "deathLon": -3.0026,
+    "birthDate": "c. 1280",
+    "deathDate": "c. 1337"
+  },
+  {
+    "id": "mary-seacole",
+    "name": "Mary Seacole",
+    "birthLat": 17.9714,
+    "birthLon": -76.7928,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "23 November 1805",
+    "deathDate": "14 May 1881"
+  },
+  {
+    "id": "mary-wollstonecraft",
+    "name": "Mary Wollstonecraft",
+    "birthLat": 51.5074,
+    "birthLon": -0.1278,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "27 April 1759",
+    "deathDate": "10 September 1797"
+  },
+  {
+    "id": "mata-hari",
+    "name": "Mata Hari",
+    "birthLat": 53.2012,
+    "birthLon": 5.7999,
+    "deathLat": 48.8014,
+    "deathLon": 2.4245,
+    "birthDate": "7 August 1876",
+    "deathDate": "15 October 1917"
+  },
+  {
+    "id": "robespierre",
+    "name": "Maximilien Robespierre",
+    "birthLat": 50.2794,
+    "birthLon": 3.9672,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "6 May 1758",
+    "deathDate": "28 July 1794"
+  },
+  {
+    "id": "mobutu-sese-seko",
+    "name": "Mobutu Sese Seko",
+    "aliases": [
+      "Mobutu"
+    ],
+    "birthLat": 2.148,
+    "birthLon": 21.517,
+    "deathLat": 33.9716,
+    "deathLon": -6.8498,
+    "birthDate": "14 October 1930",
+    "deathDate": "7 September 1997"
+  },
+  {
+    "id": "montezuma-ii",
+    "name": "Montezuma II",
+    "aliases": [
+      "Moctezuma II"
+    ],
+    "birthLat": 19.4326,
+    "birthLon": -99.1332,
+    "deathLat": 19.4326,
+    "deathLon": -99.1332,
+    "birthDate": "c. 1466",
+    "deathDate": "29 June 1520"
+  },
+  {
+    "id": "murasaki-shikibu",
+    "name": "Murasaki Shikibu",
+    "birthLat": 35.0116,
+    "birthLon": 135.7681,
+    "deathLat": 35.0116,
+    "deathLon": 135.7681,
+    "birthDate": "c. 973",
+    "deathDate": "c. 1014"
+  },
+  {
+    "id": "mustafa-kemal-ataturk",
+    "name": "Mustafa Kemal Atatürk",
+    "aliases": [
+      "Ataturk",
+      "Atatürk"
+    ],
+    "birthLat": 40.7667,
+    "birthLon": 30,
+    "deathLat": 41.0082,
+    "deathLon": 28.9784,
+    "birthDate": "19 May 1881",
+    "deathDate": "10 November 1938"
+  },
+  {
+    "id": "napoleon-iii",
+    "name": "Napoleon III",
+    "birthLat": 48.2082,
+    "birthLon": 16.3738,
+    "deathLat": 51.4875,
+    "deathLon": 0.1687,
+    "birthDate": "20 April 1808",
+    "deathDate": "9 January 1873"
+  },
+  {
+    "id": "nebuchadnezzar-ii",
+    "name": "Nebuchadnezzar II",
+    "birthLat": 33.3152,
+    "birthLon": 44.3661,
+    "deathLat": 33.3152,
+    "deathLon": 44.3661,
+    "birthDate": "c. 630 BC",
+    "deathDate": "562 BC"
+  },
+  {
+    "id": "nero",
+    "name": "Nero",
+    "birthLat": 41.9028,
+    "birthLon": 12.4964,
+    "deathLat": 37.9755,
+    "deathLon": 23.7348,
+    "birthDate": "15 December 37 AD",
+    "deathDate": "9 June 68 AD"
+  },
+  {
+    "id": "machiavelli",
+    "name": "Niccolò Machiavelli",
+    "aliases": [
+      "Machiavelli"
+    ],
+    "birthLat": 43.7696,
+    "birthLon": 11.2558,
+    "deathLat": 43.7696,
+    "deathLon": 11.2558,
+    "birthDate": "3 May 1469",
+    "deathDate": "21 June 1527"
+  },
+  {
+    "id": "nicholas-ii",
+    "name": "Nicholas II",
+    "aliases": [
+      "Tsar Nicholas II"
+    ],
+    "birthLat": 59.7167,
+    "birthLon": 30.0667,
+    "deathLat": 56.8431,
+    "deathLon": 60.6454,
+    "birthDate": "18 May 1868",
+    "deathDate": "17 July 1918"
+  },
+  {
+    "id": "norodom-sihanouk",
+    "name": "Norodom Sihanouk",
+    "birthLat": 11.5564,
+    "birthLon": 104.9282,
+    "deathLat": 39.9042,
+    "deathLon": 116.4074,
+    "birthDate": "31 October 1922",
+    "deathDate": "15 October 2012"
+  },
+  {
+    "id": "oda-nobunaga",
+    "name": "Oda Nobunaga",
+    "birthLat": 35.3167,
+    "birthLon": 136.7833,
+    "deathLat": 35.0116,
+    "deathLon": 135.7681,
+    "birthDate": "23 June 1534",
+    "deathDate": "21 June 1582"
+  },
+  {
+    "id": "oliver-cromwell",
+    "name": "Oliver Cromwell",
+    "birthLat": 52.329,
+    "birthLon": -0.1838,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "25 April 1599",
+    "deathDate": "3 September 1658"
+  },
+  {
+    "id": "otto-von-bismarck",
+    "name": "Otto von Bismarck",
+    "birthLat": 52.0833,
+    "birthLon": 11.8667,
+    "deathLat": 53.6355,
+    "deathLon": 9.8451,
+    "birthDate": "1 April 1815",
+    "deathDate": "30 July 1898"
+  },
+  {
+    "id": "ovid",
+    "name": "Ovid",
+    "birthLat": 42.0479,
+    "birthLon": 13.9269,
+    "deathLat": 44.1598,
+    "deathLon": 28.6348,
+    "birthDate": "20 March 43 BC",
+    "deathDate": "17 AD"
+  },
+  {
+    "id": "pancho-villa",
+    "name": "Pancho Villa",
+    "birthLat": 27.4833,
+    "birthLon": -105.1833,
+    "deathLat": 27.4833,
+    "deathLon": -105.1833,
+    "birthDate": "5 June 1878",
+    "deathDate": "20 July 1923"
+  },
+  {
+    "id": "patrice-lumumba",
+    "name": "Patrice Lumumba",
+    "birthLat": 4.05,
+    "birthLon": 23.5,
+    "deathLat": -11.6647,
+    "deathLon": 27.4794,
+    "birthDate": "2 July 1925",
+    "deathDate": "17 January 1961"
+  },
+  {
+    "id": "petrarch",
+    "name": "Petrarch",
+    "birthLat": 43.7696,
+    "birthLon": 11.2558,
+    "deathLat": 45.4384,
+    "deathLon": 10.9916,
+    "birthDate": "20 July 1304",
+    "deathDate": "18 July 1374"
+  },
+  {
+    "id": "philip-ii-spain",
+    "name": "Philip II of Spain",
+    "birthLat": 42,
+    "birthLon": -2.45,
+    "deathLat": 40.4168,
+    "deathLon": -3.7038,
+    "birthDate": "21 May 1527",
+    "deathDate": "13 September 1598"
+  },
+  {
+    "id": "pocahontas",
+    "name": "Pocahontas",
+    "birthLat": 37.415,
+    "birthLon": -76.778,
+    "deathLat": 51.441,
+    "deathLon": 0.369,
+    "birthDate": "c. 1596",
+    "deathDate": "March 1617"
+  },
+  {
+    "id": "pol-pot",
+    "name": "Pol Pot",
+    "birthLat": 13,
+    "birthLon": 105.5,
+    "deathLat": 14.3,
+    "deathLon": 104.9,
+    "birthDate": "19 May 1925",
+    "deathDate": "15 April 1998"
+  },
+  {
+    "id": "queen-nzinga",
+    "name": "Queen Nzinga",
+    "aliases": [
+      "Nzinga Mbande"
+    ],
+    "birthLat": -9.6658,
+    "birthLon": 13.2573,
+    "deathLat": -9.6658,
+    "deathLon": 13.2573,
+    "birthDate": "1583",
+    "deathDate": "17 December 1663"
+  },
+  {
+    "id": "raphael",
+    "name": "Raphael",
+    "birthLat": 43.7263,
+    "birthLon": 12.6363,
+    "deathLat": 41.9028,
+    "deathLon": 12.4964,
+    "birthDate": "6 April 1483",
+    "deathDate": "6 April 1520"
+  },
+  {
+    "id": "rene-descartes",
+    "name": "René Descartes",
+    "aliases": [
+      "Descartes"
+    ],
+    "birthLat": 47.2378,
+    "birthLon": 0.6867,
+    "deathLat": 59.3293,
+    "deathLon": 18.0686,
+    "birthDate": "31 March 1596",
+    "deathDate": "11 February 1650"
+  },
+  {
+    "id": "richard-burton",
+    "name": "Richard Francis Burton",
+    "aliases": [
+      "Richard Burton"
+    ],
+    "birthLat": 50.4619,
+    "birthLon": -3.5253,
+    "deathLat": 45.6495,
+    "deathLon": 13.7768,
+    "birthDate": "19 March 1821",
+    "deathDate": "20 October 1890"
+  },
+  {
+    "id": "richard-the-lionheart",
+    "name": "Richard the Lionheart",
+    "birthLat": 51.4839,
+    "birthLon": -0.6044,
+    "deathLat": 45.4333,
+    "deathLon": 1.05,
+    "birthDate": "8 September 1157",
+    "deathDate": "6 April 1199"
+  },
+  {
+    "id": "roald-amundsen",
+    "name": "Roald Amundsen",
+    "birthLat": 59.604,
+    "birthLon": 10.751,
+    "deathLat": 72,
+    "deathLon": 28,
+    "birthDate": "16 July 1872",
+    "deathDate": "18 June 1928"
+  },
+  {
+    "id": "robert-falcon-scott",
+    "name": "Robert Falcon Scott",
+    "aliases": [
+      "Robert Scott"
+    ],
+    "birthLat": 50.3755,
+    "birthLon": -4.1427,
+    "deathLat": -79.5,
+    "deathLon": 170,
+    "birthDate": "6 June 1868",
+    "deathDate": "29 March 1912"
+  },
+  {
+    "id": "robert-the-bruce",
+    "name": "Robert the Bruce",
+    "birthLat": 55.5778,
+    "birthLon": -4.3278,
+    "deathLat": 55.5778,
+    "deathLon": -4.3278,
+    "birthDate": "11 July 1274",
+    "deathDate": "7 June 1329"
+  },
+  {
+    "id": "rudolf-nureyev",
+    "name": "Rudolf Nureyev",
+    "birthLat": 52.285,
+    "birthLon": 104.281,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "17 March 1938",
+    "deathDate": "6 January 1993"
+  },
+  {
+    "id": "sacagawea",
+    "name": "Sacagawea",
+    "birthLat": 45,
+    "birthLon": -113,
+    "deathLat": 46.1667,
+    "deathLon": -100.5833,
+    "birthDate": "c. 1788",
+    "deathDate": "c. 1812"
+  },
+  {
+    "id": "sejong-the-great",
+    "name": "Sejong the Great",
+    "birthLat": 37.5665,
+    "birthLon": 126.978,
+    "deathLat": 37.5665,
+    "deathLon": 126.978,
+    "birthDate": "15 May 1397",
+    "deathDate": "8 April 1450"
+  },
+  {
+    "id": "seneca",
+    "name": "Seneca",
+    "aliases": [
+      "Seneca the Younger"
+    ],
+    "birthLat": 37.8882,
+    "birthLon": -4.7794,
+    "deathLat": 41.9028,
+    "deathLon": 12.4964,
+    "birthDate": "c. 4 BC",
+    "deathDate": "65 AD"
+  },
+  {
+    "id": "shaka-zulu",
+    "name": "Shaka Zulu",
+    "birthLat": -28.783,
+    "birthLon": 31.893,
+    "deathLat": -28.783,
+    "deathLon": 31.893,
+    "birthDate": "c. 1787",
+    "deathDate": "22 September 1828"
+  },
+  {
+    "id": "simon-de-montfort",
+    "name": "Simon de Montfort",
+    "birthLat": 48.8566,
+    "birthLon": 2.3522,
+    "deathLat": 52.2485,
+    "deathLon": -0.8729,
+    "birthDate": "c. 1205",
+    "deathDate": "4 August 1265"
+  },
+  {
+    "id": "sitting-bull",
+    "name": "Sitting Bull",
+    "birthLat": 45.7833,
+    "birthLon": -100.1833,
+    "deathLat": 45.7833,
+    "deathLon": -100.1833,
+    "birthDate": "c. 1831",
+    "deathDate": "15 December 1890"
+  },
+  {
+    "id": "spartacus",
+    "name": "Spartacus",
+    "birthLat": 42,
+    "birthLon": 27,
+    "deathLat": 41,
+    "deathLon": 16,
+    "birthDate": "c. 111 BC",
+    "deathDate": "71 BC"
+  },
+  {
+    "id": "suleiman-the-magnificent",
+    "name": "Suleiman the Magnificent",
+    "birthLat": 41.0015,
+    "birthLon": 39.7178,
+    "deathLat": 41.0082,
+    "deathLon": 28.9784,
+    "birthDate": "6 November 1494",
+    "deathDate": "6 September 1566"
+  },
+  {
+    "id": "sun-yat-sen",
+    "name": "Sun Yat-sen",
+    "birthLat": 22.2769,
+    "birthLon": 113.5678,
+    "deathLat": 31.2304,
+    "deathLon": 121.4737,
+    "birthDate": "12 November 1866",
+    "deathDate": "12 March 1925"
+  },
+  {
+    "id": "sundiata-keita",
+    "name": "Sundiata Keita",
+    "birthLat": 12.6392,
+    "birthLon": -8.0029,
+    "deathLat": 12.6392,
+    "deathLon": -8.0029,
+    "birthDate": "c. 1217",
+    "deathDate": "c. 1255"
+  },
+  {
+    "id": "ts-eliot",
+    "name": "T. S. Eliot",
+    "aliases": [
+      "TS Eliot"
+    ],
+    "birthLat": 38.627,
+    "birthLon": -90.1994,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "26 September 1888",
+    "deathDate": "4 January 1965"
+  },
+  {
+    "id": "tamerlane",
+    "name": "Tamerlane",
+    "aliases": [
+      "Timur"
+    ],
+    "birthLat": 39.7747,
+    "birthLon": 64.4286,
+    "deathLat": 39.6542,
+    "deathLon": 66.9597,
+    "birthDate": "9 April 1336",
+    "deathDate": "18 February 1405"
+  },
+  {
+    "id": "tokugawa-ieyasu",
+    "name": "Tokugawa Ieyasu",
+    "birthLat": 34.9756,
+    "birthLon": 138.3828,
+    "deathLat": 35.0116,
+    "deathLon": 135.7681,
+    "birthDate": "31 January 1543",
+    "deathDate": "1 June 1616"
+  },
+  {
+    "id": "toussaint-louverture",
+    "name": "Toussaint Louverture",
+    "birthLat": 19.7419,
+    "birthLon": -72.2014,
+    "deathLat": 47.3033,
+    "deathLon": 6.7867,
+    "birthDate": "20 May 1743",
+    "deathDate": "7 April 1803"
+  },
+  {
+    "id": "vasco-da-gama",
+    "name": "Vasco da Gama",
+    "birthLat": 38.7223,
+    "birthLon": -9.1393,
+    "deathLat": 11.2588,
+    "deathLon": 75.7804,
+    "birthDate": "c. 1469",
+    "deathDate": "24 December 1524"
+  },
+  {
+    "id": "vladimir-nabokov",
+    "name": "Vladimir Nabokov",
+    "birthLat": 59.9311,
+    "birthLon": 30.3609,
+    "deathLat": 46.433,
+    "deathLon": 6.911,
+    "birthDate": "22 April 1899",
+    "deathDate": "2 July 1977"
+  },
+  {
+    "id": "william-the-conqueror",
+    "name": "William the Conqueror",
+    "birthLat": 49.1829,
+    "birthLon": -0.3707,
+    "deathLat": 49.1829,
+    "deathLon": -0.3707,
+    "birthDate": "c. 1028",
+    "deathDate": "9 September 1087"
+  },
+  {
+    "id": "william-wallace",
+    "name": "William Wallace",
+    "birthLat": 55.8278,
+    "birthLon": -4.4278,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "c. 1270",
+    "deathDate": "23 August 1305"
+  },
+  {
+    "id": "wu-zetian",
+    "name": "Wu Zetian",
+    "birthLat": 34.62,
+    "birthLon": 112.45,
+    "deathLat": 34.3416,
+    "deathLon": 108.9398,
+    "birthDate": "624",
+    "deathDate": "16 December 705"
+  },
+  {
+    "id": "yuri-gagarin",
+    "name": "Yuri Gagarin",
+    "birthLat": 55.5714,
+    "birthLon": 35.0022,
+    "deathLat": 55.5714,
+    "deathLon": 35.0022,
+    "birthDate": "9 March 1934",
+    "deathDate": "27 March 1968"
+  },
+  {
+    "id": "zheng-he",
+    "name": "Zheng He",
+    "birthLat": 24.8,
+    "birthLon": 102.8,
+    "deathLat": 32.0603,
+    "deathLon": 118.7969,
+    "birthDate": "1371",
+    "deathDate": "1433"
+  }
+]

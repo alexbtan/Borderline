@@ -1,0 +1,1316 @@
+[
+  {
+    "id": "abraham-lincoln",
+    "name": "Abraham Lincoln",
+    "birthLat": 37.5307,
+    "birthLon": -85.7361,
+    "deathLat": 38.8977,
+    "deathLon": -77.0365,
+    "birthDate": "12 February 1809",
+    "deathDate": "15 April 1865"
+  },
+  {
+    "id": "adolf-hitler",
+    "name": "Adolf Hitler",
+    "birthLat": 48.2569,
+    "birthLon": 13.0433,
+    "deathLat": 52.52,
+    "deathLon": 13.405,
+    "birthDate": "20 April 1889",
+    "deathDate": "30 April 1945"
+  },
+  {
+    "id": "albert-camus",
+    "name": "Albert Camus",
+    "birthLat": 36.6833,
+    "birthLon": 5.9,
+    "deathLat": 47.989,
+    "deathLon": 3.23,
+    "birthDate": "7 November 1913",
+    "deathDate": "4 January 1960"
+  },
+  {
+    "id": "albert-einstein",
+    "name": "Albert Einstein",
+    "birthLat": 48.4011,
+    "birthLon": 9.9876,
+    "deathLat": 40.3573,
+    "deathLon": -74.6672,
+    "birthDate": "14 March 1879",
+    "deathDate": "18 April 1955"
+  },
+  {
+    "id": "alexander-fleming",
+    "name": "Alexander Fleming",
+    "birthLat": 55.9533,
+    "birthLon": -3.1883,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "6 August 1881",
+    "deathDate": "11 March 1955"
+  },
+  {
+    "id": "alexander-the-great",
+    "name": "Alexander the Great",
+    "birthLat": 40.7617,
+    "birthLon": 22.5208,
+    "deathLat": 32.4833,
+    "deathLon": 44.4333,
+    "birthDate": "20 July 356 BC",
+    "deathDate": "10 June 323 BC"
+  },
+  {
+    "id": "amelia-earhart",
+    "name": "Amelia Earhart",
+    "birthLat": 39.5631,
+    "birthLon": -95.1211,
+    "deathLat": 1.3521,
+    "deathLon": 172.9364,
+    "birthDate": "24 July 1897",
+    "deathDate": "c. 2 July 1937"
+  },
+  {
+    "id": "andy-warhol",
+    "name": "Andy Warhol",
+    "birthLat": 40.4406,
+    "birthLon": -79.9959,
+    "deathLat": 40.4406,
+    "deathLon": -79.9959,
+    "birthDate": "6 August 1928",
+    "deathDate": "22 February 1987"
+  },
+  {
+    "id": "archimedes",
+    "name": "Archimedes",
+    "birthLat": 37.0755,
+    "birthLon": 15.2866,
+    "deathLat": 37.0755,
+    "deathLon": 15.2866,
+    "birthDate": "c. 287 BC",
+    "deathDate": "c. 212 BC"
+  },
+  {
+    "id": "aristotle",
+    "name": "Aristotle",
+    "birthLat": 40.6544,
+    "birthLon": 23.5944,
+    "deathLat": 38.4625,
+    "deathLon": 23.5967,
+    "birthDate": "384 BC",
+    "deathDate": "322 BC"
+  },
+  {
+    "id": "auguste-rodin",
+    "name": "Auguste Rodin",
+    "birthLat": 48.8566,
+    "birthLon": 2.3522,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "12 November 1840",
+    "deathDate": "17 November 1917"
+  },
+  {
+    "id": "augustus",
+    "name": "Augustus",
+    "aliases": [
+      "Caesar Augustus"
+    ],
+    "birthLat": 41.9028,
+    "birthLon": 12.4964,
+    "deathLat": 41.9028,
+    "deathLon": 12.4964,
+    "birthDate": "23 September 63 BC",
+    "deathDate": "19 August 14 AD"
+  },
+  {
+    "id": "benito-mussolini",
+    "name": "Benito Mussolini",
+    "birthLat": 44.0667,
+    "birthLon": 10.85,
+    "deathLat": 46.2736,
+    "deathLon": 11.2044,
+    "birthDate": "29 July 1883",
+    "deathDate": "28 April 1945"
+  },
+  {
+    "id": "benjamin-franklin",
+    "name": "Benjamin Franklin",
+    "birthLat": 42.3601,
+    "birthLon": -71.0589,
+    "deathLat": 39.9526,
+    "deathLon": -75.1652,
+    "birthDate": "17 January 1706",
+    "deathDate": "17 April 1790"
+  },
+  {
+    "id": "bob-marley",
+    "name": "Bob Marley",
+    "birthLat": 18.4714,
+    "birthLon": -77.9229,
+    "deathLat": 25.7907,
+    "deathLon": -80.13,
+    "birthDate": "6 February 1945",
+    "deathDate": "11 May 1981"
+  },
+  {
+    "id": "bruce-lee",
+    "name": "Bruce Lee",
+    "birthLat": 37.7749,
+    "birthLon": -122.4194,
+    "deathLat": 22.3193,
+    "deathLon": 114.1694,
+    "birthDate": "27 November 1940",
+    "deathDate": "20 July 1973"
+  },
+  {
+    "id": "buddha",
+    "name": "Buddha",
+    "aliases": [
+      "Siddhartha Gautama",
+      "Gautama Buddha"
+    ],
+    "birthLat": 27.4844,
+    "birthLon": 83.276,
+    "deathLat": 26.7427,
+    "deathLon": 83.8898,
+    "birthDate": "563 BC",
+    "deathDate": "483 BC"
+  },
+  {
+    "id": "catherine-the-great",
+    "name": "Catherine the Great",
+    "birthLat": 53.4285,
+    "birthLon": 14.5528,
+    "deathLat": 59.9311,
+    "deathLon": 30.3609,
+    "birthDate": "2 May 1729",
+    "deathDate": "17 November 1796"
+  },
+  {
+    "id": "charlemagne",
+    "name": "Charlemagne",
+    "birthLat": 50.6403,
+    "birthLon": 5.5717,
+    "deathLat": 50.7753,
+    "deathLon": 6.0839,
+    "birthDate": "2 April 742",
+    "deathDate": "28 January 814"
+  },
+  {
+    "id": "charles-darwin",
+    "name": "Charles Darwin",
+    "birthLat": 52.7109,
+    "birthLon": -2.7553,
+    "deathLat": 51.3377,
+    "deathLon": 0.0542,
+    "birthDate": "12 February 1809",
+    "deathDate": "19 April 1882"
+  },
+  {
+    "id": "charles-de-gaulle",
+    "name": "Charles de Gaulle",
+    "birthLat": 50.1744,
+    "birthLon": 2.3772,
+    "deathLat": 49.0097,
+    "deathLon": 2.5479,
+    "birthDate": "22 November 1890",
+    "deathDate": "9 November 1970"
+  },
+  {
+    "id": "charles-dickens",
+    "name": "Charles Dickens",
+    "birthLat": 50.8198,
+    "birthLon": -1.088,
+    "deathLat": 51.4416,
+    "deathLon": 0.1499,
+    "birthDate": "7 February 1812",
+    "deathDate": "9 June 1870"
+  },
+  {
+    "id": "charlie-chaplin",
+    "name": "Charlie Chaplin",
+    "birthLat": 51.5074,
+    "birthLon": -0.1278,
+    "deathLat": 46.2994,
+    "deathLon": 7.451,
+    "birthDate": "16 April 1889",
+    "deathDate": "25 December 1977"
+  },
+  {
+    "id": "che-guevara",
+    "name": "Che Guevara",
+    "birthLat": -32.9468,
+    "birthLon": -60.6393,
+    "deathLat": -16.9767,
+    "deathLon": -64.1333,
+    "birthDate": "14 June 1928",
+    "deathDate": "9 October 1967"
+  },
+  {
+    "id": "christopher-columbus",
+    "name": "Christopher Columbus",
+    "birthLat": 44.4056,
+    "birthLon": 8.9463,
+    "deathLat": 41.6523,
+    "deathLon": -4.7245,
+    "birthDate": "1451",
+    "deathDate": "20 May 1506"
+  },
+  {
+    "id": "claude-monet",
+    "name": "Claude Monet",
+    "birthLat": 49.05,
+    "birthLon": 1.15,
+    "deathLat": 49.05,
+    "deathLon": 1.15,
+    "birthDate": "14 November 1840",
+    "deathDate": "5 December 1926"
+  },
+  {
+    "id": "cleopatra",
+    "name": "Cleopatra",
+    "birthLat": 31.2001,
+    "birthLon": 29.9187,
+    "deathLat": 31.2001,
+    "deathLon": 29.9187,
+    "birthDate": "69 BC",
+    "deathDate": "10 August 30 BC"
+  },
+  {
+    "id": "confucius",
+    "name": "Confucius",
+    "birthLat": 35.5967,
+    "birthLon": 116.9861,
+    "deathLat": 35.5967,
+    "deathLon": 116.9861,
+    "birthDate": "551 BC",
+    "deathDate": "479 BC"
+  },
+  {
+    "id": "dante-alighieri",
+    "name": "Dante Alighieri",
+    "aliases": [
+      "Dante"
+    ],
+    "birthLat": 43.7696,
+    "birthLon": 11.2558,
+    "deathLat": 44.4184,
+    "deathLon": 12.2035,
+    "birthDate": "c. 1265",
+    "deathDate": "14 September 1321"
+  },
+  {
+    "id": "princess-diana",
+    "name": "Diana, Princess of Wales",
+    "aliases": [
+      "Princess Diana"
+    ],
+    "birthLat": 52.6297,
+    "birthLon": 1.2979,
+    "deathLat": 48.8686,
+    "deathLon": 2.3295,
+    "birthDate": "1 July 1961",
+    "deathDate": "31 August 1997"
+  },
+  {
+    "id": "diego-maradona",
+    "name": "Diego Maradona",
+    "birthLat": -34.6037,
+    "birthLon": -58.3816,
+    "deathLat": -34.6037,
+    "deathLon": -58.3816,
+    "birthDate": "30 October 1960",
+    "deathDate": "25 November 2020"
+  },
+  {
+    "id": "dwight-eisenhower",
+    "name": "Dwight D. Eisenhower",
+    "aliases": [
+      "Eisenhower"
+    ],
+    "birthLat": 38.8814,
+    "birthLon": -94.8191,
+    "deathLat": 38.8814,
+    "deathLon": -77.0365,
+    "birthDate": "14 October 1890",
+    "deathDate": "28 March 1969"
+  },
+  {
+    "id": "queen-elizabeth-i",
+    "name": "Elizabeth I",
+    "aliases": [
+      "Queen Elizabeth I"
+    ],
+    "birthLat": 51.4826,
+    "birthLon": -0.0077,
+    "deathLat": 51.4613,
+    "deathLon": -0.3037,
+    "birthDate": "7 September 1533",
+    "deathDate": "24 March 1603"
+  },
+  {
+    "id": "elvis-presley",
+    "name": "Elvis Presley",
+    "birthLat": 34.257,
+    "birthLon": -88.7034,
+    "deathLat": 36.16,
+    "deathLon": -86.7833,
+    "birthDate": "8 January 1935",
+    "deathDate": "16 August 1977"
+  },
+  {
+    "id": "ernest-hemingway",
+    "name": "Ernest Hemingway",
+    "birthLat": 41.885,
+    "birthLon": -87.7845,
+    "deathLat": 43.6805,
+    "deathLon": -114.3633,
+    "birthDate": "21 July 1899",
+    "deathDate": "2 July 1961"
+  },
+  {
+    "id": "eva-peron",
+    "name": "Eva Perón",
+    "aliases": [
+      "Evita"
+    ],
+    "birthLat": -35.5947,
+    "birthLon": -61.7447,
+    "deathLat": -34.6037,
+    "deathLon": -58.3816,
+    "birthDate": "7 May 1919",
+    "deathDate": "26 July 1952"
+  },
+  {
+    "id": "fidel-castro",
+    "name": "Fidel Castro",
+    "birthLat": 20.0219,
+    "birthLon": -75.8265,
+    "deathLat": 23.1136,
+    "deathLon": -82.3666,
+    "birthDate": "13 August 1926",
+    "deathDate": "25 November 2016"
+  },
+  {
+    "id": "florence-nightingale",
+    "name": "Florence Nightingale",
+    "birthLat": 43.7696,
+    "birthLon": 11.2558,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "12 May 1820",
+    "deathDate": "13 August 1910"
+  },
+  {
+    "id": "franklin-d-roosevelt",
+    "name": "Franklin D. Roosevelt",
+    "aliases": [
+      "FDR"
+    ],
+    "birthLat": 41.2033,
+    "birthLon": -73.4832,
+    "deathLat": 32.8972,
+    "deathLon": -79.8581,
+    "birthDate": "30 January 1882",
+    "deathDate": "12 April 1945"
+  },
+  {
+    "id": "freddie-mercury",
+    "name": "Freddie Mercury",
+    "birthLat": 19.076,
+    "birthLon": 72.8777,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "5 September 1946",
+    "deathDate": "24 November 1991"
+  },
+  {
+    "id": "frederick-douglass",
+    "name": "Frederick Douglass",
+    "birthLat": 38.8977,
+    "birthLon": -76.2019,
+    "deathLat": 43.1566,
+    "deathLon": -77.6088,
+    "birthDate": "February 1818",
+    "deathDate": "20 February 1895"
+  },
+  {
+    "id": "frida-kahlo",
+    "name": "Frida Kahlo",
+    "birthLat": 19.355,
+    "birthLon": -99.1622,
+    "deathLat": 19.355,
+    "deathLon": -99.1622,
+    "birthDate": "6 July 1907",
+    "deathDate": "13 July 1954"
+  },
+  {
+    "id": "gabriel-garcia-marquez",
+    "name": "Gabriel García Márquez",
+    "aliases": [
+      "Gabriel Garcia Marquez"
+    ],
+    "birthLat": 10.591,
+    "birthLon": -74.189,
+    "deathLat": 19.4326,
+    "deathLon": -99.1332,
+    "birthDate": "6 March 1927",
+    "deathDate": "17 April 2014"
+  },
+  {
+    "id": "galileo-galilei",
+    "name": "Galileo Galilei",
+    "aliases": [
+      "Galileo"
+    ],
+    "birthLat": 43.7228,
+    "birthLon": 10.4017,
+    "deathLat": 43.7536,
+    "deathLon": 11.2553,
+    "birthDate": "15 February 1564",
+    "deathDate": "8 January 1642"
+  },
+  {
+    "id": "genghis-khan",
+    "name": "Genghis Khan",
+    "birthLat": 48.5,
+    "birthLon": 110,
+    "deathLat": 38.4864,
+    "deathLon": 106.2327,
+    "birthDate": "c. 1162",
+    "deathDate": "18 August 1227"
+  },
+  {
+    "id": "george-washington",
+    "name": "George Washington",
+    "birthLat": 38.1154,
+    "birthLon": -76.8858,
+    "deathLat": 38.7079,
+    "deathLon": -77.0859,
+    "birthDate": "22 February 1732",
+    "deathDate": "14 December 1799"
+  },
+  {
+    "id": "golda-meir",
+    "name": "Golda Meir",
+    "birthLat": 50.4501,
+    "birthLon": 30.5234,
+    "deathLat": 32.0853,
+    "deathLon": 34.7818,
+    "birthDate": "3 May 1898",
+    "deathDate": "8 December 1978"
+  },
+  {
+    "id": "gregor-mendel",
+    "name": "Gregor Mendel",
+    "birthLat": 49.1951,
+    "birthLon": 16.6068,
+    "deathLat": 49.1951,
+    "deathLon": 16.6068,
+    "birthDate": "20 July 1822",
+    "deathDate": "6 January 1884"
+  },
+  {
+    "id": "harriet-tubman",
+    "name": "Harriet Tubman",
+    "birthLat": 38.454,
+    "birthLon": -76.0419,
+    "deathLat": 43.1009,
+    "deathLon": -76.4344,
+    "birthDate": "c. March 1822",
+    "deathDate": "10 March 1913"
+  },
+  {
+    "id": "henry-viii",
+    "name": "Henry VIII",
+    "birthLat": 51.4826,
+    "birthLon": -0.0077,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "28 June 1491",
+    "deathDate": "28 January 1547"
+  },
+  {
+    "id": "hirohito",
+    "name": "Hirohito",
+    "aliases": [
+      "Emperor Hirohito"
+    ],
+    "birthLat": 35.6762,
+    "birthLon": 139.6503,
+    "deathLat": 35.6762,
+    "deathLon": 139.6503,
+    "birthDate": "29 April 1901",
+    "deathDate": "7 January 1989"
+  },
+  {
+    "id": "ho-chi-minh",
+    "name": "Ho Chi Minh",
+    "birthLat": 18.6736,
+    "birthLon": 105.6813,
+    "deathLat": 21.0285,
+    "deathLon": 105.8542,
+    "birthDate": "19 May 1890",
+    "deathDate": "2 September 1969"
+  },
+  {
+    "id": "indira-gandhi",
+    "name": "Indira Gandhi",
+    "birthLat": 25.3176,
+    "birthLon": 82.9739,
+    "deathLat": 28.6139,
+    "deathLon": 77.209,
+    "birthDate": "19 November 1917",
+    "deathDate": "31 October 1984"
+  },
+  {
+    "id": "isaac-newton",
+    "name": "Isaac Newton",
+    "birthLat": 52.8092,
+    "birthLon": -0.5956,
+    "deathLat": 51.5007,
+    "deathLon": -0.1924,
+    "birthDate": "4 January 1643",
+    "deathDate": "31 March 1727"
+  },
+  {
+    "id": "james-joyce",
+    "name": "James Joyce",
+    "birthLat": 53.3498,
+    "birthLon": -6.2603,
+    "deathLat": 47.3769,
+    "deathLon": 8.5417,
+    "birthDate": "2 February 1882",
+    "deathDate": "13 January 1941"
+  },
+  {
+    "id": "james-watt",
+    "name": "James Watt",
+    "birthLat": 55.8642,
+    "birthLon": -4.2518,
+    "deathLat": 52.4862,
+    "deathLon": -1.8904,
+    "birthDate": "19 January 1736",
+    "deathDate": "25 August 1819"
+  },
+  {
+    "id": "jane-austen",
+    "name": "Jane Austen",
+    "birthLat": 51.2117,
+    "birthLon": -1.2283,
+    "deathLat": 51.0632,
+    "deathLon": -1.308,
+    "birthDate": "16 December 1775",
+    "deathDate": "18 July 1817"
+  },
+  {
+    "id": "jawaharlal-nehru",
+    "name": "Jawaharlal Nehru",
+    "birthLat": 27.1767,
+    "birthLon": 78.0081,
+    "deathLat": 28.6139,
+    "deathLon": 77.209,
+    "birthDate": "14 November 1889",
+    "deathDate": "27 May 1964"
+  },
+  {
+    "id": "joan-of-arc",
+    "name": "Joan of Arc",
+    "birthLat": 48.4439,
+    "birthLon": 5.6742,
+    "deathLat": 49.4431,
+    "deathLon": 1.0993,
+    "birthDate": "6 January 1412",
+    "deathDate": "30 May 1431"
+  },
+  {
+    "id": "johann-sebastian-bach",
+    "name": "Johann Sebastian Bach",
+    "aliases": [
+      "J.S. Bach",
+      "Bach"
+    ],
+    "birthLat": 50.993,
+    "birthLon": 10.3617,
+    "deathLat": 51.3397,
+    "deathLon": 12.3731,
+    "birthDate": "21 March 1685",
+    "deathDate": "28 July 1750"
+  },
+  {
+    "id": "johannes-gutenberg",
+    "name": "Johannes Gutenberg",
+    "birthLat": 49.9929,
+    "birthLon": 8.2473,
+    "deathLat": 49.9929,
+    "deathLon": 8.2473,
+    "birthDate": "c. 1400",
+    "deathDate": "3 February 1468"
+  },
+  {
+    "id": "john-f-kennedy",
+    "name": "John F. Kennedy",
+    "aliases": [
+      "JFK"
+    ],
+    "birthLat": 42.3601,
+    "birthLon": -71.0589,
+    "deathLat": 32.7767,
+    "deathLon": -96.797,
+    "birthDate": "29 May 1917",
+    "deathDate": "22 November 1963"
+  },
+  {
+    "id": "joseph-stalin",
+    "name": "Joseph Stalin",
+    "aliases": [
+      "Stalin"
+    ],
+    "birthLat": 41.7151,
+    "birthLon": 44.8271,
+    "deathLat": 55.7558,
+    "deathLon": 37.6173,
+    "birthDate": "18 December 1878",
+    "deathDate": "5 March 1953"
+  },
+  {
+    "id": "julius-caesar",
+    "name": "Julius Caesar",
+    "birthLat": 41.9028,
+    "birthLon": 12.4964,
+    "deathLat": 41.9028,
+    "deathLon": 12.4964,
+    "birthDate": "12 July 100 BC",
+    "deathDate": "15 March 44 BC"
+  },
+  {
+    "id": "karl-marx",
+    "name": "Karl Marx",
+    "birthLat": 49.7596,
+    "birthLon": 6.6441,
+    "deathLat": 51.5354,
+    "deathLon": -0.1028,
+    "birthDate": "5 May 1818",
+    "deathDate": "14 March 1883"
+  },
+  {
+    "id": "leonardo-da-vinci",
+    "name": "Leonardo da Vinci",
+    "birthLat": 43.7833,
+    "birthLon": 10.9167,
+    "deathLat": 47.4167,
+    "deathLon": 0.9833,
+    "birthDate": "15 April 1452",
+    "deathDate": "2 May 1519"
+  },
+  {
+    "id": "louis-armstrong",
+    "name": "Louis Armstrong",
+    "birthLat": 29.9511,
+    "birthLon": -90.0715,
+    "deathLat": 40.8448,
+    "deathLon": -73.8648,
+    "birthDate": "4 August 1901",
+    "deathDate": "6 July 1971"
+  },
+  {
+    "id": "louis-pasteur",
+    "name": "Louis Pasteur",
+    "birthLat": 47.092,
+    "birthLon": 5.4944,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "27 December 1822",
+    "deathDate": "28 September 1895"
+  },
+  {
+    "id": "louis-xiv",
+    "name": "Louis XIV",
+    "birthLat": 48.8044,
+    "birthLon": 2.1232,
+    "deathLat": 48.8044,
+    "deathLon": 2.1232,
+    "birthDate": "5 September 1638",
+    "deathDate": "1 September 1715"
+  },
+  {
+    "id": "louis-xvi",
+    "name": "Louis XVI",
+    "birthLat": 48.8044,
+    "birthLon": 2.1232,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "23 August 1754",
+    "deathDate": "21 January 1793"
+  },
+  {
+    "id": "ludwig-van-beethoven",
+    "name": "Ludwig van Beethoven",
+    "aliases": [
+      "Beethoven"
+    ],
+    "birthLat": 50.7374,
+    "birthLon": 7.0982,
+    "deathLat": 48.2082,
+    "deathLon": 16.3738,
+    "birthDate": "17 December 1770",
+    "deathDate": "26 March 1827"
+  },
+  {
+    "id": "mahatma-gandhi",
+    "name": "Mahatma Gandhi",
+    "aliases": [
+      "Gandhi"
+    ],
+    "birthLat": 21.6417,
+    "birthLon": 69.6293,
+    "deathLat": 28.6139,
+    "deathLon": 77.209,
+    "birthDate": "2 October 1869",
+    "deathDate": "30 January 1948"
+  },
+  {
+    "id": "malcolm-x",
+    "name": "Malcolm X",
+    "birthLat": 42.3314,
+    "birthLon": -83.0458,
+    "deathLat": 40.8448,
+    "deathLon": -73.8648,
+    "birthDate": "19 May 1925",
+    "deathDate": "21 February 1965"
+  },
+  {
+    "id": "mao-zedong",
+    "name": "Mao Zedong",
+    "aliases": [
+      "Mao Tse-tung"
+    ],
+    "birthLat": 27.9144,
+    "birthLon": 112.4942,
+    "deathLat": 39.9042,
+    "deathLon": 116.4074,
+    "birthDate": "26 December 1893",
+    "deathDate": "9 September 1976"
+  },
+  {
+    "id": "marco-polo",
+    "name": "Marco Polo",
+    "birthLat": 45.4408,
+    "birthLon": 12.3155,
+    "deathLat": 45.4408,
+    "deathLon": 12.3155,
+    "birthDate": "1254",
+    "deathDate": "8 January 1324"
+  },
+  {
+    "id": "margaret-thatcher",
+    "name": "Margaret Thatcher",
+    "birthLat": 52.4,
+    "birthLon": -1.5,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "13 October 1925",
+    "deathDate": "8 April 2013"
+  },
+  {
+    "id": "marie-antoinette",
+    "name": "Marie Antoinette",
+    "birthLat": 48.2082,
+    "birthLon": 16.3738,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "2 November 1755",
+    "deathDate": "16 October 1793"
+  },
+  {
+    "id": "marie-curie",
+    "name": "Marie Curie",
+    "birthLat": 52.2297,
+    "birthLon": 21.0122,
+    "deathLat": 45.9234,
+    "deathLon": 6.1274,
+    "birthDate": "7 November 1867",
+    "deathDate": "4 July 1934"
+  },
+  {
+    "id": "mark-twain",
+    "name": "Mark Twain",
+    "aliases": [
+      "Samuel Clemens"
+    ],
+    "birthLat": 39.4942,
+    "birthLon": -91.7868,
+    "deathLat": 41.4706,
+    "deathLon": -73.3787,
+    "birthDate": "30 November 1835",
+    "deathDate": "21 April 1910"
+  },
+  {
+    "id": "martin-luther",
+    "name": "Martin Luther",
+    "birthLat": 51.5264,
+    "birthLon": 11.5486,
+    "deathLat": 51.5264,
+    "deathLon": 11.5486,
+    "birthDate": "10 November 1483",
+    "deathDate": "18 February 1546"
+  },
+  {
+    "id": "martin-luther-king-jr",
+    "name": "Martin Luther King Jr.",
+    "aliases": [
+      "Martin Luther King"
+    ],
+    "birthLat": 33.749,
+    "birthLon": -84.388,
+    "deathLat": 35.1495,
+    "deathLon": -90.049,
+    "birthDate": "15 January 1929",
+    "deathDate": "4 April 1968"
+  },
+  {
+    "id": "mary-queen-of-scots",
+    "name": "Mary, Queen of Scots",
+    "birthLat": 56.462,
+    "birthLon": -2.9707,
+    "deathLat": 52.4068,
+    "deathLon": -1.5197,
+    "birthDate": "8 December 1542",
+    "deathDate": "8 February 1587"
+  },
+  {
+    "id": "michelangelo",
+    "name": "Michelangelo",
+    "birthLat": 43.7867,
+    "birthLon": 11.8333,
+    "deathLat": 41.9028,
+    "deathLon": 12.4964,
+    "birthDate": "6 March 1475",
+    "deathDate": "18 February 1564"
+  },
+  {
+    "id": "mikhail-gorbachev",
+    "name": "Mikhail Gorbachev",
+    "aliases": [
+      "Gorbachev"
+    ],
+    "birthLat": 45,
+    "birthLon": 41,
+    "deathLat": 55.7558,
+    "deathLon": 37.6173,
+    "birthDate": "2 March 1931",
+    "deathDate": "30 August 2022"
+  },
+  {
+    "id": "mother-teresa",
+    "name": "Mother Teresa",
+    "aliases": [
+      "Teresa of Calcutta"
+    ],
+    "birthLat": 42,
+    "birthLon": 20.9167,
+    "deathLat": 22.5726,
+    "deathLon": 88.3639,
+    "birthDate": "26 August 1910",
+    "deathDate": "5 September 1997"
+  },
+  {
+    "id": "muhammad-ali",
+    "name": "Muhammad Ali",
+    "aliases": [
+      "Cassius Clay"
+    ],
+    "birthLat": 38.2527,
+    "birthLon": -85.7585,
+    "deathLat": 33.4735,
+    "deathLon": -86.7788,
+    "birthDate": "17 January 1942",
+    "deathDate": "3 June 2016"
+  },
+  {
+    "id": "napoleon-bonaparte",
+    "name": "Napoleon Bonaparte",
+    "aliases": [
+      "Napoleon"
+    ],
+    "birthLat": 41.9267,
+    "birthLon": 8.7369,
+    "deathLat": -15.9456,
+    "deathLon": -5.7178,
+    "birthDate": "15 August 1769",
+    "deathDate": "5 May 1821"
+  },
+  {
+    "id": "neil-armstrong",
+    "name": "Neil Armstrong",
+    "birthLat": 40.3934,
+    "birthLon": -84.3763,
+    "deathLat": 39.7589,
+    "deathLon": -84.1916,
+    "birthDate": "5 August 1930",
+    "deathDate": "25 August 2012"
+  },
+  {
+    "id": "nelson-mandela",
+    "name": "Nelson Mandela",
+    "birthLat": -31.5594,
+    "birthLon": 28.7847,
+    "deathLat": -26.2041,
+    "deathLon": 28.0473,
+    "birthDate": "18 July 1918",
+    "deathDate": "5 December 2013"
+  },
+  {
+    "id": "nicolaus-copernicus",
+    "name": "Nicolaus Copernicus",
+    "aliases": [
+      "Copernicus"
+    ],
+    "birthLat": 53.0138,
+    "birthLon": 18.5981,
+    "deathLat": 54.1592,
+    "deathLon": 19.1706,
+    "birthDate": "19 February 1473",
+    "deathDate": "24 May 1543"
+  },
+  {
+    "id": "nikola-tesla",
+    "name": "Nikola Tesla",
+    "birthLat": 44.5667,
+    "birthLon": 15.3167,
+    "deathLat": 40.7484,
+    "deathLon": -73.9857,
+    "birthDate": "10 July 1856",
+    "deathDate": "7 January 1943"
+  },
+  {
+    "id": "oscar-wilde",
+    "name": "Oscar Wilde",
+    "birthLat": 53.3498,
+    "birthLon": -6.2603,
+    "deathLat": 48.8534,
+    "deathLon": 2.3488,
+    "birthDate": "16 October 1854",
+    "deathDate": "30 November 1900"
+  },
+  {
+    "id": "pablo-picasso",
+    "name": "Pablo Picasso",
+    "birthLat": 36.7213,
+    "birthLon": -4.4214,
+    "deathLat": 43.6007,
+    "deathLon": 6.9947,
+    "birthDate": "25 October 1881",
+    "deathDate": "8 April 1973"
+  },
+  {
+    "id": "paul-gauguin",
+    "name": "Paul Gauguin",
+    "birthLat": 48.8566,
+    "birthLon": 2.3522,
+    "deathLat": -9.806,
+    "deathLon": -139.034,
+    "birthDate": "7 June 1848",
+    "deathDate": "8 May 1903"
+  },
+  {
+    "id": "pele",
+    "name": "Pelé",
+    "aliases": [
+      "Pele"
+    ],
+    "birthLat": -23.5505,
+    "birthLon": -46.6333,
+    "deathLat": -23.5505,
+    "deathLon": -46.6333,
+    "birthDate": "23 October 1940",
+    "deathDate": "29 December 2022"
+  },
+  {
+    "id": "peter-the-great",
+    "name": "Peter the Great",
+    "birthLat": 55.7558,
+    "birthLon": 37.6173,
+    "deathLat": 59.9311,
+    "deathLon": 30.3609,
+    "birthDate": "9 June 1672",
+    "deathDate": "8 February 1725"
+  },
+  {
+    "id": "plato",
+    "name": "Plato",
+    "birthLat": 37.9838,
+    "birthLon": 23.7275,
+    "deathLat": 37.9838,
+    "deathLon": 23.7275,
+    "birthDate": "428 BC",
+    "deathDate": "348 BC"
+  },
+  {
+    "id": "pope-john-paul-ii",
+    "name": "Pope John Paul II",
+    "birthLat": 49.8795,
+    "birthLon": 19.4939,
+    "deathLat": 41.9022,
+    "deathLon": 12.4539,
+    "birthDate": "18 May 1920",
+    "deathDate": "2 April 2005"
+  },
+  {
+    "id": "qin-shi-huang",
+    "name": "Qin Shi Huang",
+    "birthLat": 34.3416,
+    "birthLon": 108.9398,
+    "deathLat": 34.3841,
+    "deathLon": 109.2785,
+    "birthDate": "259 BC",
+    "deathDate": "210 BC"
+  },
+  {
+    "id": "queen-elizabeth-ii",
+    "name": "Queen Elizabeth II",
+    "aliases": [
+      "Elizabeth II"
+    ],
+    "birthLat": 51.4839,
+    "birthLon": -0.6044,
+    "deathLat": 57.0404,
+    "deathLon": -3.2293,
+    "birthDate": "21 April 1926",
+    "deathDate": "8 September 2022"
+  },
+  {
+    "id": "queen-victoria",
+    "name": "Queen Victoria",
+    "birthLat": 51.4839,
+    "birthLon": -0.6044,
+    "deathLat": 50.8225,
+    "deathLon": -1.301,
+    "birthDate": "24 May 1819",
+    "deathDate": "22 January 1901"
+  },
+  {
+    "id": "ramses-ii",
+    "name": "Ramses II",
+    "aliases": [
+      "Ramesses II"
+    ],
+    "birthLat": 30.8,
+    "birthLon": 31.25,
+    "deathLat": 30.8,
+    "deathLon": 31.25,
+    "birthDate": "c. 1303 BC",
+    "deathDate": "1213 BC"
+  },
+  {
+    "id": "rembrandt",
+    "name": "Rembrandt",
+    "birthLat": 52.1601,
+    "birthLon": 4.497,
+    "deathLat": 52.3676,
+    "deathLon": 4.9041,
+    "birthDate": "15 July 1606",
+    "deathDate": "4 October 1669"
+  },
+  {
+    "id": "ronald-reagan",
+    "name": "Ronald Reagan",
+    "birthLat": 41.328,
+    "birthLon": -89.7823,
+    "deathLat": 34.1486,
+    "deathLon": -118.3965,
+    "birthDate": "6 February 1911",
+    "deathDate": "5 June 2004"
+  },
+  {
+    "id": "rosa-parks",
+    "name": "Rosa Parks",
+    "birthLat": 32.424,
+    "birthLon": -85.6916,
+    "deathLat": 42.3314,
+    "deathLon": -83.0458,
+    "birthDate": "4 February 1913",
+    "deathDate": "24 October 2005"
+  },
+  {
+    "id": "saladin",
+    "name": "Saladin",
+    "birthLat": 34.5978,
+    "birthLon": 43.6789,
+    "deathLat": 33.5138,
+    "deathLon": 36.2765,
+    "birthDate": "1137",
+    "deathDate": "4 March 1193"
+  },
+  {
+    "id": "salvador-dali",
+    "name": "Salvador Dalí",
+    "aliases": [
+      "Salvador Dali"
+    ],
+    "birthLat": 42.2681,
+    "birthLon": 2.9653,
+    "deathLat": 28.1248,
+    "deathLon": -15.43,
+    "birthDate": "11 May 1904",
+    "deathDate": "23 January 1989"
+  },
+  {
+    "id": "sigmund-freud",
+    "name": "Sigmund Freud",
+    "birthLat": 49.4967,
+    "birthLon": 18.9103,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "6 May 1856",
+    "deathDate": "23 September 1939"
+  },
+  {
+    "id": "simon-bolivar",
+    "name": "Simón Bolívar",
+    "aliases": [
+      "Simon Bolivar"
+    ],
+    "birthLat": 10.4806,
+    "birthLon": -66.9036,
+    "deathLat": 11.2408,
+    "deathLon": -74.199,
+    "birthDate": "24 July 1783",
+    "deathDate": "17 December 1830"
+  },
+  {
+    "id": "socrates",
+    "name": "Socrates",
+    "birthLat": 37.9838,
+    "birthLon": 23.7275,
+    "deathLat": 37.9838,
+    "deathLon": 23.7275,
+    "birthDate": "470 BC",
+    "deathDate": "399 BC"
+  },
+  {
+    "id": "stephen-hawking",
+    "name": "Stephen Hawking",
+    "birthLat": 51.752,
+    "birthLon": -1.2577,
+    "deathLat": 52.2053,
+    "deathLon": 0.1192,
+    "birthDate": "8 January 1942",
+    "deathDate": "14 March 2018"
+  },
+  {
+    "id": "theodore-roosevelt",
+    "name": "Theodore Roosevelt",
+    "birthLat": 40.6782,
+    "birthLon": -73.9442,
+    "deathLat": 38.8814,
+    "deathLon": -77.0365,
+    "birthDate": "27 October 1858",
+    "deathDate": "6 January 1919"
+  },
+  {
+    "id": "thomas-edison",
+    "name": "Thomas Edison",
+    "birthLat": 41.0534,
+    "birthLon": -74.1638,
+    "deathLat": 40.5576,
+    "deathLon": -74.2846,
+    "birthDate": "11 February 1847",
+    "deathDate": "18 October 1931"
+  },
+  {
+    "id": "tutankhamun",
+    "name": "Tutankhamun",
+    "aliases": [
+      "King Tut"
+    ],
+    "birthLat": 25.7208,
+    "birthLon": 32.6103,
+    "deathLat": 25.7402,
+    "deathLon": 32.6014,
+    "birthDate": "c. 1341 BC",
+    "deathDate": "c. 1323 BC"
+  },
+  {
+    "id": "vincent-van-gogh",
+    "name": "Vincent van Gogh",
+    "aliases": [
+      "Van Gogh"
+    ],
+    "birthLat": 51.4717,
+    "birthLon": 4.6569,
+    "deathLat": 49.0706,
+    "deathLon": 2.1706,
+    "birthDate": "30 March 1853",
+    "deathDate": "29 July 1890"
+  },
+  {
+    "id": "vladimir-lenin",
+    "name": "Vladimir Lenin",
+    "aliases": [
+      "Lenin"
+    ],
+    "birthLat": 54.7355,
+    "birthLon": 55.9479,
+    "deathLat": 55.7558,
+    "deathLon": 37.6173,
+    "birthDate": "22 April 1870",
+    "deathDate": "21 January 1924"
+  },
+  {
+    "id": "voltaire",
+    "name": "Voltaire",
+    "birthLat": 48.8566,
+    "birthLon": 2.3522,
+    "deathLat": 48.8566,
+    "deathLon": 2.3522,
+    "birthDate": "21 November 1694",
+    "deathDate": "30 May 1778"
+  },
+  {
+    "id": "walt-disney",
+    "name": "Walt Disney",
+    "birthLat": 41.8781,
+    "birthLon": -87.6298,
+    "deathLat": 34.1526,
+    "deathLon": -118.3492,
+    "birthDate": "5 December 1901",
+    "deathDate": "15 December 1966"
+  },
+  {
+    "id": "william-shakespeare",
+    "name": "William Shakespeare",
+    "aliases": [
+      "Shakespeare"
+    ],
+    "birthLat": 52.1917,
+    "birthLon": -1.7083,
+    "deathLat": 52.1917,
+    "deathLon": -1.7083,
+    "birthDate": "April 1564",
+    "deathDate": "23 April 1616"
+  },
+  {
+    "id": "winston-churchill",
+    "name": "Winston Churchill",
+    "birthLat": 51.8417,
+    "birthLon": -1.3614,
+    "deathLat": 51.5074,
+    "deathLon": -0.1278,
+    "birthDate": "30 November 1874",
+    "deathDate": "24 January 1965"
+  },
+  {
+    "id": "wolfgang-amadeus-mozart",
+    "name": "Wolfgang Amadeus Mozart",
+    "aliases": [
+      "Mozart"
+    ],
+    "birthLat": 47.8095,
+    "birthLon": 13.055,
+    "deathLat": 48.2082,
+    "deathLon": 16.3738,
+    "birthDate": "27 January 1756",
+    "deathDate": "5 December 1791"
+  }
+]
